@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<CrossedArt_Mapi>
+			<version>0.1.0</version>
+		</CrossedArt_Mapi>
+	</modules>
+	<global>
+		<models>
+			<sales>
+				<rewrite>
+					<order_api>CrossedArt_Mapi_Model_Sales_Order_Api</order_api>
+					<order_api_v2>CrossedArt_Mapi_Model_Sales_Order_Api_V2</order_api_v2>
+				</rewrite>
+			</sales>
+		</models>
+		<helpers>
+	      	<mapi>
+	        	<class>CrossedArt_Mapi_Helper</class>
+	      	</mapi>
+	    </helpers>
+	</global>
+	<frontend>
+		<routers>
+			<CrossedArt_Mapi>
+				<use>standard</use>
+				<args>
+					<module>CrossedArt_Mapi</module>
+					<frontName>mapi</frontName>
+				</args>
+			</CrossedArt_Mapi>
+		</routers>
+	</frontend>
+</config>

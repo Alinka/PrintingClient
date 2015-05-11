@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    CrossedArt
+ * @package     CrossedArt_Mapi
+ * @author		Alina Butko
+ */
+-->
+<config>
+    <api>
+        <resources>
+            <sales_order translate="title" module="sales">
+                <model>sales/order_api</model>
+                <title>Order API</title> 
+                <acl>sales/order</acl>
+                <methods>
+                    <printinfo translate="title" module="sales">
+                        <title>Retrieve list of orders by filters for printing</title>
+                        <method>printinfo</method>
+                        <acl>sales/order/info</acl>
+                    </printinfo>
+                    <detail translate="title" module="sales">
+                        <title>Retrieve order information</title>
+                        <method>detail</method>
+                        <acl>sales/order/detail</acl>
+                    </detail>
+                </methods>
+            </sales_order>          
+        </resources>
+        <resources_alias>
+            <order>sales_order</order>
+        </resources_alias>
+        <v2>
+            <resources_function_prefix>
+                <order>salesOrder</order>
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+               	<sales translate="title" module="sales">
+                    <title>Sales</title>
+                    <sort_order>2</sort_order>
+                    <order translate="title" module="sales">
+                        <title>Order</title>
+                        <printinfo translate="title" module="sales">
+                            <title>Retrieve orders info</title>
+                        </printinfo>
+                        <detail translate="title" module="sales">
+                            <title>Retrieve orders info</title>
+                        </detail>
+					</order>
+               	</sales>
+            </resources>
+        </acl>
+    </api>
+</config>

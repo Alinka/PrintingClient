@@ -1,0 +1,77 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ERPPrintingApplication.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SessionKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="INVOICE_PRINTER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="INVOICE_PRINTER_DRAWER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="INVOICE_PRINTER_PAPER_WIDTH" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WAREHOUSE" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ERPPrintingApplication_MagentoSoapAPI_MagentoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.northerner.com/index.php/api/V2_soap/index/</Value>
+    </Setting>
+    <Setting Name="BarcodeDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\BarcodeDB.mdf;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\BarcodeDB.mdf;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="LABEL_PRINTER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LABEL_PRINTER_DRAWER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LABEL_PRINTER_PAPER_WIDTH" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LABEL_PRINTER_PAPER_HEIGHT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RETURN_ADDRESS1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RETURN_ADDRESS2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="INVOICE_PRINTER_PAPER_HEIGHT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="INVOICE_PRINTER_MARGIN_TOP" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="INVOICE_PRINTER_MARGIN_LEFT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UPS_IMPORT_PATH" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UPS_WEIGHT_TYPE" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UPGRADE_TO_UPS" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UPS_UPGRADE_WEIGHT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="REQ_ADULT" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

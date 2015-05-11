@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 	xmlns:typens="urn:{{var wsdl.name}}"
+             		xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+             		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             		xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+            		name="{{var wsdl.name}}"
+             		targetNamespace="urn:{{var wsdl.name}}">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+			<xsd:complexType name="salesOrderEntity">
+                <xsd:sequence>
+                    <xsd:element name="increment_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="grand_total" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="shipping_address" type="typens:salesOrderAddressEntity" minOccurs="0" />
+                    <xsd:element name="billing_address" type="typens:salesOrderAddressEntity" minOccurs="0" />
+                    <xsd:element name="items" type="typens:salesOrderItemEntityArray" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="salesOrderPrintinfoEntity">
+				<xsd:sequence>
+					<xsd:element name = "increment_id" type="xsd:string" minOccurs="0" />
+					<xsd:element name = "created_at" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "updated_at" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "shipping_name" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "company" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "street" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "city" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "postcode" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "region" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "country_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "base_grand_total" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "weight" type="xsd:string" minOccurs="0" />
+                    <xsd:element name = "status"  type="xsd:string" minOccurs="0"/>
+					<xsd:element name = "shipping_description"  type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="salesOrderItemEntity">
+                <xsd:sequence>
+                    <xsd:element name="item_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="order_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="quote_item_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="created_at" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="updated_at" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="preparation_warehouse" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="product_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="product_type" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="product_options" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="weight" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="is_virtual" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="sku" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="name" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="applied_rule_ids" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="free_shipping" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="is_qty_decimal" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="no_discount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="qty_canceled" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="qty_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="qty_ordered" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="qty_refunded" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="qty_shipped" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="cost" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="price" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_price" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="original_price" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_original_price" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="tax_percent" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="tax_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_tax_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="tax_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_tax_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="discount_percent" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="discount_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_discount_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="discount_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_discount_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="amount_refunded" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_amount_refunded" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="row_total" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_row_total" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="row_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_row_invoiced" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="row_weight" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="gift_message_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="gift_message" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="gift_message_available" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_tax_before_discount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="tax_before_discount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="weee_tax_applied" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="weee_tax_applied_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="weee_tax_applied_row_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_weee_tax_applied_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_weee_tax_applied_row_amount" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="weee_tax_disposition" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="weee_tax_row_disposition" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_weee_tax_disposition" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="base_weee_tax_row_disposition" type="xsd:string" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="salesOrderItemEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:salesOrderItemEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+			<xsd:complexType name="salesOrderPrintinfoEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:salesOrderPrintinfoEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+			
+			<xsd:element name="salesOrderDetailRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="orderIncrementId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="salesOrderDetailResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:salesOrderEntity" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+			<xsd:element name="salesOrderPrintinfoRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="warehouse" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="salesOrderPrintinfoResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:salesOrderPrintinfoEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="salesOrderDetailRequest">
+        <wsdl:part name="parameters" element="typens:salesOrderDetailRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="salesOrderDetailResponse">
+        <wsdl:part name="parameters" element="typens:salesOrderDetailResponseParam" />
+    </wsdl:message>
+	<wsdl:message name="salesOrderPrintinfoRequest">
+        <wsdl:part name="parameters" element="typens:salesOrderPrintinfoRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="salesOrderPrintinfoResponse">
+        <wsdl:part name="parameters" element="typens:salesOrderPrintinfoResponseParam" />
+    </wsdl:message>
+    
+	<wsdl:portType name="{{var wsdl.handler}}PortType">
+        <wsdl:operation name="salesOrderDetail">
+            <wsdl:documentation>Retrieve order information</wsdl:documentation>
+            <wsdl:input message="typens:salesOrderDetailRequest" />
+            <wsdl:output message="typens:salesOrderDetailResponse" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="salesOrderPrintinfo">
+            <wsdl:documentation>Retrieve list of orders by filters for printing application</wsdl:documentation>
+            <wsdl:input message="typens:salesOrderPrintinfoRequest" />
+            <wsdl:output message="typens:salesOrderPrintinfoResponse" />
+        </wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="salesOrderDetail">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="salesOrderPrintinfo">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="{{var wsdl.name}}Service">
+        <wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

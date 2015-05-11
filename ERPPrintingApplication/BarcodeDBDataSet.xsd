@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BarcodeDBDataSet" targetNamespace="http://tempuri.org/BarcodeDBDataSet.xsd" xmlns:mstns="http://tempuri.org/BarcodeDBDataSet.xsd" xmlns="http://tempuri.org/BarcodeDBDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BarcodeDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BarcodeDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ERPPrintingApplication.Properties.Settings.GlobalReference.Default.BarcodeDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BarcodeDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BarcodeDBDataSet" msprop:Generator_UserDSName="BarcodeDBDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

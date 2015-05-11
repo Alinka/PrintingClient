@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71A90D76-46C3-4C67-9E57-271813614B2E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERPPrintingApplication</RootNamespace>
+    <AssemblyName>ERPPrintingApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.C1DataExtender.2, Version=2.0.20113.81, Culture=neutral, PublicKeyToken=7c4b5683f80b910e, processorArchitecture=MSIL" />
+    <Reference Include="C1.C1Report.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
+    <Reference Include="C1.C1Report.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
+    <Reference Include="C1.Data.2, Version=2.0.20141.273, Culture=neutral, PublicKeyToken=900b028620cd3a1b, processorArchitecture=MSIL" />
+    <Reference Include="C1.Data.Entity.4, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=64e78d493ac08671" />
+    <Reference Include="C1.Data.Express.2, Version=2.0.20141.273, Culture=neutral, PublicKeyToken=900b028620cd3a1b, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1BarCode.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Command.4, Version=4.0.20151.38, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Editor.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Input.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1InputPanel.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1List.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Report.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=41780e2fc605e636, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1ReportDesigner.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=fb528571dbff5bd2, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Ribbon.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SplitContainer.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SuperTooltip.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1TouchToolKit.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=5e531fc0479701e7, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1TrueDBGrid.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=75ae3fb0e2b1e0da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Win7Pack.2, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.Data.Entity.4, Version=2.0.20151.38, Culture=neutral, PublicKeyToken=4e8cc5aec211257b, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarcodeDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarcodeDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagentoAPIService.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterAPI.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToUPS.cs" />
+    <Compile Include="Web References\MagentoSoapAPI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="BarcodeDBDataSet.xsc">
+      <DependentUpon>BarcodeDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BarcodeDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BarcodeDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BarcodeDBDataSet.xss">
+      <DependentUpon>BarcodeDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Web References\MagentoSoapAPI\apiEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\associativeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogAssignedProduct.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogAttributeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogAttributeOptionEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogCategoryEntityNoChildren.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogCategoryInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogCategoryTree.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogInventoryStockItemEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductAttributeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductAttributeMediaTypeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductAttributeSetEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductCustomOptionInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductCustomOptionListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductCustomOptionTypesEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductCustomOptionValueInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductCustomOptionValueListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductDownloadableLinkListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductImageEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductLinkAttributeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductLinkEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductReturnEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductSpecialPriceReturnEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductTagInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductTagListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductTierPriceEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\catalogProductTypeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\customerAddressEntityItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\customerCustomerEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\customerGroupEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\directoryCountryEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\directoryRegionEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\enterpriseCustomerbalanceHistoryItemEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\enterpriseGiftcardaccountListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\existsFaltureEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\giftcardAccountEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\giftcardCustomerEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\giftMessageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\Magento.wsdl" />
+    <None Include="Web References\MagentoSoapAPI\magentoInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\salesOrderCreditmemoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\salesOrderEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\salesOrderInvoiceEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\salesOrderListEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\salesOrderPrintinfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\salesOrderShipmentEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\shoppingCartInfoEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\shoppingCartLicenseEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\shoppingCartPaymentMethodResponseEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\shoppingCartShippingMethodEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\shoppingCartTotalsEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\startSessionResponseParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MagentoSoapAPI\storeEntity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://northerner.com/index.php/api/V2_soap%3fwsdl=1">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MagentoSoapAPI\</RelPath>
+      <UpdateFromURL>http://northerner.com/index.php/api/V2_soap%3fwsdl=1</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ERPPrintingApplication_MagentoSoapAPI_MagentoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BarcodeDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BarcodeDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>BarcodeDB.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\cn22.jpg" />
+    <None Include="Resources\tull.bmp" />
+    <None Include="Resources\cn22.bmp" />
+    <None Include="Resources\Porto.png" />
+    <None Include="Resources\logo%402x.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
