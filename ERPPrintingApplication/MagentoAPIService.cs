@@ -15,7 +15,7 @@ namespace ERPPrintingApplication
         private MagentoService _mageService = new MagentoService();
         private string _sessionKey;
 
-        public bool DoLogin(string username, string password)
+        public bool DoLogin(string username, string password, int alloddeven)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace ERPPrintingApplication
         {
             try
             {
-                salesOrderEntity order = _mageService.salesOrderDetail(_sessionKey, _orderID);             
+                salesOrderEntity order = _mageService.salesOrderDetail(_sessionKey, _orderID);  
                 return order;
             }
             catch (Exception ex)

@@ -45,6 +45,7 @@
             this.c1SplitterPanel_Items = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.c1FlexGrid_Items = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.c1DockingTabPage_Settings = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1CheckBox_AdultSign = new C1.Win.C1Input.C1CheckBox();
             this.c1NumericEdit_WieghtLimit = new C1.Win.C1Input.C1NumericEdit();
             this.c1CheckBox_EnableUPSForDK = new C1.Win.C1Input.C1CheckBox();
             this.c1Button_FolderBrowse = new C1.Win.C1Input.C1Button();
@@ -80,7 +81,6 @@
             this.ribbonProgressBar = new C1.Win.C1Ribbon.RibbonProgressBar();
             this.folderBrowserDialog_UPS = new System.Windows.Forms.FolderBrowserDialog();
             this.salesOrderPrintinfoEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.c1CheckBox_AdultSign = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab_Main)).BeginInit();
             this.c1DockingTab_Main.SuspendLayout();
             this.c1DockingTabPage_PrepareOrders.SuspendLayout();
@@ -94,6 +94,7 @@
             this.c1SplitterPanel_Items.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid_Items)).BeginInit();
             this.c1DockingTabPage_Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_AdultSign)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1NumericEdit_WieghtLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_EnableUPSForDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_FolderBrowse)).BeginInit();
@@ -114,7 +115,6 @@
             this.c1PrintPreviewDialog_Invoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_AdultSign)).BeginInit();
             this.SuspendLayout();
             // 
             // printInvoiceDialog
@@ -324,6 +324,18 @@
             this.c1DockingTabPage_Settings.Text = "Settings";
             this.c1DockingTabPage_Settings.Enter += new System.EventHandler(this.c1DockingTabPage_Settings_Enter);
             // 
+            // c1CheckBox_AdultSign
+            // 
+            this.c1CheckBox_AdultSign.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox_AdultSign.Location = new System.Drawing.Point(500, 35);
+            this.c1CheckBox_AdultSign.Name = "c1CheckBox_AdultSign";
+            this.c1CheckBox_AdultSign.Size = new System.Drawing.Size(148, 24);
+            this.c1CheckBox_AdultSign.TabIndex = 30;
+            this.c1CheckBox_AdultSign.Text = "Require Adult Signature";
+            this.c1CheckBox_AdultSign.UseVisualStyleBackColor = true;
+            this.c1CheckBox_AdultSign.Value = null;
+            this.c1CheckBox_AdultSign.CheckStateChanged += new System.EventHandler(this.c1CheckBox_AdultSign_CheckStateChanged);
+            // 
             // c1NumericEdit_WieghtLimit
             // 
             this.c1NumericEdit_WieghtLimit.Enabled = false;
@@ -431,7 +443,7 @@
             // 
             // c1Button_LabelPrinterConfig
             // 
-            this.c1Button_LabelPrinterConfig.Location = new System.Drawing.Point(447, 362);
+            this.c1Button_LabelPrinterConfig.Location = new System.Drawing.Point(447, 225);
             this.c1Button_LabelPrinterConfig.Name = "c1Button_LabelPrinterConfig";
             this.c1Button_LabelPrinterConfig.Size = new System.Drawing.Size(75, 23);
             this.c1Button_LabelPrinterConfig.TabIndex = 17;
@@ -441,7 +453,7 @@
             // 
             // c1Button_InvoicePrinterConfig
             // 
-            this.c1Button_InvoicePrinterConfig.Location = new System.Drawing.Point(147, 362);
+            this.c1Button_InvoicePrinterConfig.Location = new System.Drawing.Point(147, 225);
             this.c1Button_InvoicePrinterConfig.Name = "c1Button_InvoicePrinterConfig";
             this.c1Button_InvoicePrinterConfig.Size = new System.Drawing.Size(75, 23);
             this.c1Button_InvoicePrinterConfig.TabIndex = 16;
@@ -452,7 +464,7 @@
             // label_LabelPrinterPaper
             // 
             this.label_LabelPrinterPaper.AutoSize = true;
-            this.label_LabelPrinterPaper.Location = new System.Drawing.Point(419, 334);
+            this.label_LabelPrinterPaper.Location = new System.Drawing.Point(419, 197);
             this.label_LabelPrinterPaper.Name = "label_LabelPrinterPaper";
             this.label_LabelPrinterPaper.Size = new System.Drawing.Size(35, 13);
             this.label_LabelPrinterPaper.TabIndex = 15;
@@ -461,7 +473,7 @@
             // label_LabelPrinterDrawer
             // 
             this.label_LabelPrinterDrawer.AutoSize = true;
-            this.label_LabelPrinterDrawer.Location = new System.Drawing.Point(419, 314);
+            this.label_LabelPrinterDrawer.Location = new System.Drawing.Point(419, 177);
             this.label_LabelPrinterDrawer.Name = "label_LabelPrinterDrawer";
             this.label_LabelPrinterDrawer.Size = new System.Drawing.Size(41, 13);
             this.label_LabelPrinterDrawer.TabIndex = 13;
@@ -470,7 +482,7 @@
             // label_LabelPrinterName
             // 
             this.label_LabelPrinterName.AutoSize = true;
-            this.label_LabelPrinterName.Location = new System.Drawing.Point(419, 294);
+            this.label_LabelPrinterName.Location = new System.Drawing.Point(419, 157);
             this.label_LabelPrinterName.Name = "label_LabelPrinterName";
             this.label_LabelPrinterName.Size = new System.Drawing.Size(35, 13);
             this.label_LabelPrinterName.TabIndex = 11;
@@ -480,7 +492,7 @@
             // 
             this.label_LabelPrintingSettings.AutoSize = true;
             this.label_LabelPrintingSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_LabelPrintingSettings.Location = new System.Drawing.Point(414, 274);
+            this.label_LabelPrintingSettings.Location = new System.Drawing.Point(414, 137);
             this.label_LabelPrintingSettings.Name = "label_LabelPrintingSettings";
             this.label_LabelPrintingSettings.Size = new System.Drawing.Size(133, 13);
             this.label_LabelPrintingSettings.TabIndex = 9;
@@ -489,7 +501,7 @@
             // label_InvoicePrinterPaper
             // 
             this.label_InvoicePrinterPaper.AutoSize = true;
-            this.label_InvoicePrinterPaper.Location = new System.Drawing.Point(90, 334);
+            this.label_InvoicePrinterPaper.Location = new System.Drawing.Point(90, 197);
             this.label_InvoicePrinterPaper.Name = "label_InvoicePrinterPaper";
             this.label_InvoicePrinterPaper.Size = new System.Drawing.Size(35, 13);
             this.label_InvoicePrinterPaper.TabIndex = 8;
@@ -498,7 +510,7 @@
             // label_PrinterPaperInvoice
             // 
             this.label_PrinterPaperInvoice.AutoSize = true;
-            this.label_PrinterPaperInvoice.Location = new System.Drawing.Point(10, 334);
+            this.label_PrinterPaperInvoice.Location = new System.Drawing.Point(10, 197);
             this.label_PrinterPaperInvoice.Name = "label_PrinterPaperInvoice";
             this.label_PrinterPaperInvoice.Size = new System.Drawing.Size(71, 13);
             this.label_PrinterPaperInvoice.TabIndex = 7;
@@ -507,7 +519,7 @@
             // label_InvoicePrinterDrawer
             // 
             this.label_InvoicePrinterDrawer.AutoSize = true;
-            this.label_InvoicePrinterDrawer.Location = new System.Drawing.Point(90, 314);
+            this.label_InvoicePrinterDrawer.Location = new System.Drawing.Point(90, 177);
             this.label_InvoicePrinterDrawer.Name = "label_InvoicePrinterDrawer";
             this.label_InvoicePrinterDrawer.Size = new System.Drawing.Size(41, 13);
             this.label_InvoicePrinterDrawer.TabIndex = 6;
@@ -516,7 +528,7 @@
             // label_PrinterDrawerInvoice
             // 
             this.label_PrinterDrawerInvoice.AutoSize = true;
-            this.label_PrinterDrawerInvoice.Location = new System.Drawing.Point(10, 314);
+            this.label_PrinterDrawerInvoice.Location = new System.Drawing.Point(10, 177);
             this.label_PrinterDrawerInvoice.Name = "label_PrinterDrawerInvoice";
             this.label_PrinterDrawerInvoice.Size = new System.Drawing.Size(77, 13);
             this.label_PrinterDrawerInvoice.TabIndex = 5;
@@ -525,7 +537,7 @@
             // label_InvoicePrinterName
             // 
             this.label_InvoicePrinterName.AutoSize = true;
-            this.label_InvoicePrinterName.Location = new System.Drawing.Point(90, 294);
+            this.label_InvoicePrinterName.Location = new System.Drawing.Point(90, 157);
             this.label_InvoicePrinterName.Name = "label_InvoicePrinterName";
             this.label_InvoicePrinterName.Size = new System.Drawing.Size(35, 13);
             this.label_InvoicePrinterName.TabIndex = 4;
@@ -534,7 +546,7 @@
             // label_PrinterNameInvoice
             // 
             this.label_PrinterNameInvoice.AutoSize = true;
-            this.label_PrinterNameInvoice.Location = new System.Drawing.Point(10, 294);
+            this.label_PrinterNameInvoice.Location = new System.Drawing.Point(10, 157);
             this.label_PrinterNameInvoice.Name = "label_PrinterNameInvoice";
             this.label_PrinterNameInvoice.Size = new System.Drawing.Size(71, 13);
             this.label_PrinterNameInvoice.TabIndex = 3;
@@ -544,7 +556,7 @@
             // 
             this.label_InvoicePrinterSettings.AutoSize = true;
             this.label_InvoicePrinterSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_InvoicePrinterSettings.Location = new System.Drawing.Point(144, 274);
+            this.label_InvoicePrinterSettings.Location = new System.Drawing.Point(144, 137);
             this.label_InvoicePrinterSettings.Name = "label_InvoicePrinterSettings";
             this.label_InvoicePrinterSettings.Size = new System.Drawing.Size(144, 13);
             this.label_InvoicePrinterSettings.TabIndex = 2;
@@ -731,18 +743,6 @@
             // 
             this.salesOrderPrintinfoEntityBindingSource.DataSource = typeof(ERPPrintingApplication.MagentoSoapAPI.salesOrderPrintinfoEntity);
             // 
-            // c1CheckBox_AdultSign
-            // 
-            this.c1CheckBox_AdultSign.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox_AdultSign.Location = new System.Drawing.Point(500, 41);
-            this.c1CheckBox_AdultSign.Name = "c1CheckBox_AdultSign";
-            this.c1CheckBox_AdultSign.Size = new System.Drawing.Size(148, 24);
-            this.c1CheckBox_AdultSign.TabIndex = 30;
-            this.c1CheckBox_AdultSign.Text = "Require Adult Signature";
-            this.c1CheckBox_AdultSign.UseVisualStyleBackColor = true;
-            this.c1CheckBox_AdultSign.Value = null;
-            this.c1CheckBox_AdultSign.CheckStateChanged += new System.EventHandler(this.c1CheckBox_AdultSign_CheckStateChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -769,6 +769,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid_Items)).EndInit();
             this.c1DockingTabPage_Settings.ResumeLayout(false);
             this.c1DockingTabPage_Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_AdultSign)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1NumericEdit_WieghtLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_EnableUPSForDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_FolderBrowse)).EndInit();
@@ -791,7 +792,6 @@
             this.c1PrintPreviewDialog_Invoice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_AdultSign)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

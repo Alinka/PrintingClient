@@ -88,7 +88,7 @@ namespace ERPPrintingApplication
             xmltext += XMLtag("Memo", "Shipment #" + g[rowN, 1].ToString());
             xmltext += "\t</QVNOrReturnNotificationOption>\n";
             xmltext += "\t<DeliveryConfirmation>\n";
-            xmltext += XMLtag("AdultSignatureRequired", reqSign);
+            xmltext += XMLtag("AdultSignatureRequired", reqSign); 
             xmltext += "\t</DeliveryConfirmation>\n";
             xmltext += "\t\t</Package>\n";
 

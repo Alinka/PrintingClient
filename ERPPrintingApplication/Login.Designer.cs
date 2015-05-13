@@ -33,14 +33,18 @@
             this.c1TextBox_password = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.c1ComboBox_AllOddEven = new C1.Win.C1Input.C1ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_Login)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_username)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_password)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox_AllOddEven)).BeginInit();
             this.SuspendLayout();
             // 
             // c1Button_Login
             // 
-            this.c1Button_Login.Location = new System.Drawing.Point(112, 118);
+            this.c1Button_Login.Location = new System.Drawing.Point(112, 170);
             this.c1Button_Login.Name = "c1Button_Login";
             this.c1Button_Login.Size = new System.Drawing.Size(75, 23);
             this.c1Button_Login.TabIndex = 7;
@@ -88,11 +92,51 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Password";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(117, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Give me";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(123, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "orders";
+            // 
+            // c1ComboBox_AllOddEven
+            // 
+            this.c1ComboBox_AllOddEven.AllowSpinLoop = false;
+            this.c1ComboBox_AllOddEven.GapHeight = 0;
+            this.c1ComboBox_AllOddEven.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.c1ComboBox_AllOddEven.Items.Add("ALL");
+            this.c1ComboBox_AllOddEven.Items.Add("ODD");
+            this.c1ComboBox_AllOddEven.Items.Add("EVEN");
+            this.c1ComboBox_AllOddEven.ItemsDisplayMember = "";
+            this.c1ComboBox_AllOddEven.ItemsValueMember = "";
+            this.c1ComboBox_AllOddEven.Location = new System.Drawing.Point(105, 115);
+            this.c1ComboBox_AllOddEven.Name = "c1ComboBox_AllOddEven";
+            this.c1ComboBox_AllOddEven.Size = new System.Drawing.Size(90, 18);
+            this.c1ComboBox_AllOddEven.TabIndex = 15;
+            this.c1ComboBox_AllOddEven.Tag = null;
+            this.c1ComboBox_AllOddEven.SelectedIndexChanged += new System.EventHandler(this.c1ComboBox_AllOddEven_SelectedIndexChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 161);
+            this.ClientSize = new System.Drawing.Size(284, 201);
+            this.Controls.Add(this.c1ComboBox_AllOddEven);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.c1TextBox_password);
@@ -108,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_Login)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_username)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_password)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox_AllOddEven)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +165,8 @@
         private C1.Win.C1Input.C1TextBox c1TextBox_password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private C1.Win.C1Input.C1ComboBox c1ComboBox_AllOddEven;
     }
 }

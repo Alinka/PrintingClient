@@ -83,7 +83,7 @@ namespace ERPPrintingApplication
             SizeF sf = graphics.MeasureString(address, bodyFont, _propSet.LABEL_PRINTER_PAPER_WIDTH - 60);
             graphics.DrawString(address, bodyFont, bodyBrush, new RectangleF(new PointF(10.0f, rowHeight * 7), sf), StringFormat.GenericTypographic);
 
-            if (_propSet.WAREHOUSE == 2)
+            if (_propSet.WAREHOUSE == 2 && !international )
             {
                 graphics.DrawImage(Properties.Resources.cn22, _propSet.LABEL_PRINTER_PAPER_WIDTH - 200, 14 * rowHeight, 180, 217);
                 graphics.DrawString(descUPS, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 190, 18 * rowHeight);
@@ -106,8 +106,7 @@ namespace ERPPrintingApplication
         private void Invoice_PrintPage(Graphics graphics, string address, C1FlexGrid grid, string id)
         {
             Brush brush = Brushes.Black;
-            Font font = new Font("Arial", 10);
-            Font fontB = new Font("Arial", 12);
+            
             Brush northBrush = Brushes.Red;
             Font northFont = new Font("Times New Roman", 16, FontStyle.Bold);
             StringFormat strCenterCol = new StringFormat();
@@ -121,45 +120,43 @@ namespace ERPPrintingApplication
             centerAling.Alignment = StringAlignment.Center;
             strCenterCol.LineAlignment = StringAlignment.Center;
             strRight.Alignment = StringAlignment.Far;
-
-            // Draw the text and the surrounding rectangle.
-            graphics.DrawImage(Properties.Resources.logo_2x, 0, 0, 96, 96);
-            graphics.DrawString("THE NORTHERNER", northFont, northBrush, Properties.Resources.logo_2x.Width/2.8f, Properties.Resources.logo_2x.Height / 8 + 10, StringFormat.GenericTypographic);
-            graphics.DrawString(id, fontB, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 200, _posY + rowHeight);
-            graphics.DrawString("Date: " + DateTime.Now.ToShortDateString(), font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 200, _posY + rowHeight*2);
-            
-
-            graphics.FillRectangle(Brushes.Beige, shipStrip);
-            graphics.DrawString("Shipping Address: ", fontB, brush, new PointF(_posX + 10, _posY + 15 + rowHeight * 4));
-            graphics.DrawString(address, font, brush, new PointF(_posX + 10, _posY + rowHeight*6));
-            graphics.FillRectangle(Brushes.Beige, itemsStrip);
-            graphics.DrawString("Items included in this shippment: ", fontB, brush, new PointF(_posX + 10, _posY + 15 + rowHeight * 12));
-
-            graphics.DrawString("Name", font, brush, _posX + 15, _posY + rowHeight * 14, StringFormat.GenericTypographic);
-            graphics.DrawString("SKU", font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH / 2 + 110, _posY + rowHeight * 14, StringFormat.GenericTypographic);
-            graphics.DrawString("Qty", font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 80, _posY + rowHeight * 14, StringFormat.GenericTypographic);
-
-            
-
-            for (int i = 1; i < grid.Rows.Count; i++)
+            using (Font font = new Font("Arial", 10), fontB = new Font("Arial", 12))
             {
-                
-                if (grid[i, 1] != null)
-                {
-                    if (i % 2 != 0)
-                    {
-                        Rectangle tableRow = new Rectangle(_posX, _posY + rowHeight * (14 + i), _propSet.INVOICE_PRINTER_PAPER_WIDTH - _posY, rowHeight);
-                        graphics.FillRectangle(Brushes.Azure, tableRow);
-                    }
-
-                    graphics.DrawString(grid[i, 1].ToString(), font, brush, _posX + 15, _posY + rowHeight * (14 + i) + 5, StringFormat.GenericTypographic);
-                    graphics.DrawString(grid[i, 2].ToString(), font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH / 2 + 110, _posY + rowHeight * (14 + i) + 5, StringFormat.GenericTypographic);
-                    graphics.DrawString(grid[i, 3].ToString(), font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 80, _posY + rowHeight * (14 + i) + 5, StringFormat.GenericTypographic);
-                }                           
-            }
-            font.Dispose();
-            fontB.Dispose();
+            // Draw the text and the surrounding rectangle.
+                graphics.DrawImage(Properties.Resources.logo_2x, 0, 0, 96, 96);
+                graphics.DrawString("THE NORTHERNER", northFont, northBrush, Properties.Resources.logo_2x.Width/2.8f, Properties.Resources.logo_2x.Height / 8 + 10, StringFormat.GenericTypographic);
+                graphics.DrawString(id, fontB, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 200, _posY + rowHeight);
+                graphics.DrawString("Date: " + DateTime.Now.ToShortDateString(), font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 200, _posY + rowHeight*2);
             
+
+                graphics.FillRectangle(Brushes.Beige, shipStrip);
+                graphics.DrawString("Shipping Address: ", fontB, brush, new PointF(_posX + 10, _posY + 15 + rowHeight * 4));
+                graphics.DrawString(address, font, brush, new PointF(_posX + 10, _posY + rowHeight*6));
+                graphics.FillRectangle(Brushes.Beige, itemsStrip);
+                graphics.DrawString("Items included in this shippment: ", fontB, brush, new PointF(_posX + 10, _posY + 15 + rowHeight * 12));
+
+                graphics.DrawString("Name", font, brush, _posX + 15, _posY + rowHeight * 14, StringFormat.GenericTypographic);
+                graphics.DrawString("SKU", font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH / 2 + 110, _posY + rowHeight * 14, StringFormat.GenericTypographic);
+                graphics.DrawString("Qty", font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 80, _posY + rowHeight * 14, StringFormat.GenericTypographic);
+           
+
+                for (int i = 1; i < grid.Rows.Count; i++)
+                {
+                
+                    if (grid[i, 1] != null)
+                    {
+                        if (i % 2 != 0)
+                        {
+                            Rectangle tableRow = new Rectangle(_posX, _posY + rowHeight * (14 + i), _propSet.INVOICE_PRINTER_PAPER_WIDTH - _posY, rowHeight);
+                            graphics.FillRectangle(Brushes.Azure, tableRow);
+                        }
+
+                        graphics.DrawString(grid[i, 1].ToString(), font, brush, _posX + 15, _posY + rowHeight * (14 + i) + 5, StringFormat.GenericTypographic);
+                        graphics.DrawString(grid[i, 2].ToString(), font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH / 2 + 110, _posY + rowHeight * (14 + i) + 5, StringFormat.GenericTypographic);
+                        graphics.DrawString(grid[i, 3].ToString(), font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 80, _posY + rowHeight * (14 + i) + 5, StringFormat.GenericTypographic);
+                    }                           
+                }
+            }
         }
 
 

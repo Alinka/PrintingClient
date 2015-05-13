@@ -264,7 +264,7 @@ namespace ERPPrintingApplication
         private Dictionary<int, string> _warehouse = new Dictionary<int, string> { {0, "Sweden"}, {1, "Denmark"}, {2, "USA"} };
         private string[] _EUarray = { "AT", "BE", "BG", "CY", "CZ", "DE", "ES", "FR", "GB", "GR", "HU", "HR", "IE", "IT", "LT", "LU", "LV", "MT", "MC", "NL", "PL", "PT", "RO", "SI", "SE", "SK" };
         private string _upsDescription = "Snus";
-        private bool _restart;
+        private bool _restart = false;
         
         public MainForm()
         {
@@ -323,17 +323,12 @@ namespace ERPPrintingApplication
             }
         }
 
-        private void c1Button_InvoicePreview_Click(object sender, EventArgs e)
-        {                      
-        }
+        private void c1Button_InvoicePreview_Click(object sender, EventArgs e) {}
 
-        private void c1Button_LabelPreview_Click(object sender, EventArgs e)
-        {
-        }
+        private void c1Button_LabelPreview_Click(object sender, EventArgs e) {}
 
         private void c1ComboBox_waredhouseID_SelectedItemChanged(object sender, EventArgs e)
         {
-            
             _propSet.WAREHOUSE = c1ComboBox_waredhouseID.SelectedIndex;
             if (_propSet.WAREHOUSE == 2) _propSet.UPS_WEIGHT_TYPE = 1;
             _propSet.Save();
@@ -348,7 +343,6 @@ namespace ERPPrintingApplication
                 c1FlexGrid_ListOfOrders.Enabled = false;
                 backgroundWorker.RunWorkerAsync();
             }
-
             StyleTheGrid(c1FlexGrid_ListOfOrders);
         }
 
@@ -358,7 +352,7 @@ namespace ERPPrintingApplication
             g.Cols["shipping_description"].AllowFiltering = AllowFiltering.ByValue;
             g.Cols["created_at"].Visible = false;
             g.Cols["updated_at"].Visible = false;
-            g.Cols["status"].Visible = false;
+            //g.Cols["status"].Visible = false;
 
             g.Cols["increment_id"].Caption = "order #";
             g.Cols["shipping_name"].Caption = "name";
@@ -398,7 +392,7 @@ namespace ERPPrintingApplication
 
         private void c1Button_Label_Print_Click(object sender, EventArgs e)
         {
-            if (c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString().Contains("UPS")) 
+            if (shipWithUPS()) 
                 Program.convertUPS.Create_UPS_XML(c1FlexGrid_ListOfOrders.RowSel, c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString(), c1FlexGrid_ListOfOrders, _countries, _upsDescription, ReqSign());
             else 
                 Program.PrintService.PrintLabel(label_orderAddressDetail.Text, Math.Round(Convert.ToDecimal(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "base_grand_total")), 0).ToString(), _upsDescription, isInternational());
@@ -450,39 +444,40 @@ namespace ERPPrintingApplication
             int snus = 0;
             int snuff = 0;
             int tobfree = 0;
-
-            
-            foreach (MagentoSoapAPI.salesOrderItemEntity item in orderData.items)
+            if(orderData != null)
             {
-                int x,y,z = 0;             
-                x = Convert.ToInt32(item.qty_ordered.Remove(item.qty_ordered.IndexOf('.')));
-                y = Convert.ToInt32(item.qty_refunded.Remove(item.qty_refunded.IndexOf('.')));
-                z = Convert.ToInt32(item.qty_shipped.Remove(item.qty_shipped.IndexOf('.')));
-                int qty = x - y - z;
-                if (i < orderData.items.Length)
+                foreach (MagentoSoapAPI.salesOrderItemEntity item in orderData.items)
                 {
-                    if (Convert.ToInt32(item.preparation_warehouse) == _preparationWarehouse[_propSet.WAREHOUSE])
+                    int x, y, z = 0;
+                    x = Convert.ToInt32(item.qty_ordered.Remove(item.qty_ordered.IndexOf('.')));
+                    y = Convert.ToInt32(item.qty_refunded.Remove(item.qty_refunded.IndexOf('.')));
+                    z = Convert.ToInt32(item.qty_shipped.Remove(item.qty_shipped.IndexOf('.')));
+                    int qty = x - y - z;
+                    if (i < orderData.items.Length)
                     {
-                       if (qty > 0)
-                       {
-                            c1FlexGrid_Items[i + 1, 0] = (i + 1).ToString();
-                            c1FlexGrid_Items[i + 1, 1] = item.name;
-                            c1FlexGrid_Items[i + 1, 2] = item.sku;
-                            c1FlexGrid_Items[i + 1, 3] = qty;
+                        if (Convert.ToInt32(item.preparation_warehouse) == _preparationWarehouse[_propSet.WAREHOUSE])
+                        {
+                            if (qty > 0)
+                            {
+                                c1FlexGrid_Items[i + 1, 0] = (i + 1).ToString();
+                                c1FlexGrid_Items[i + 1, 1] = item.name;
+                                c1FlexGrid_Items[i + 1, 2] = item.sku;
+                                c1FlexGrid_Items[i + 1, 3] = qty;
 
-                            if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Snus") || item.name.Contains("Dry")) snus++;
-                            if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Snuff")) snuff++;
-                            if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Tobacco Free")) tobfree++;
-
-                            i++;
-                       }
+                                if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Snus") || item.name.Contains("Dry")) snus++;
+                                if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Snuff")) snuff++;
+                                if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Tobacco Free")) tobfree++;
+                                
+                                i++;
+                            }
+                        }
                     }
-                } 
+                }
             }
+            
             if (snus > 0) _upsDescription = "Snus";
             else if (snuff > 0) _upsDescription = "Snuff";
             else if (tobfree > 0) _upsDescription = "Tobacco Free";
-
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -495,7 +490,7 @@ namespace ERPPrintingApplication
             {
                 _orderItemArray[c1FlexGrid_ListOfOrders[i, 1].ToString()] = Program.MagentoService.RetrieveOrderInformation(c1FlexGrid_ListOfOrders[i, "increment_id"].ToString());
                 backgroundWorker.ReportProgress((i * 100) / c1FlexGrid_ListOfOrders.Rows.Count);
-                ribbonLabel_Progress.Text = (i * 100) / c1FlexGrid_ListOfOrders.Rows.Count + "%     ";
+                ribbonLabel_Progress.Text = "   " + (i * 100) / c1FlexGrid_ListOfOrders.Rows.Count + "%     ";
                 
                 if (backgroundWorker.CancellationPending)
                 {
@@ -528,7 +523,6 @@ namespace ERPPrintingApplication
             ribbonLabel_Progress.Text = "Done   ";
             ribbonProgressBar.Value = 0;
             c1FlexGrid_ListOfOrders.Enabled = true;
-            
         }
 
         private void c1Button_FolderBrowse_Click(object sender, EventArgs e)
@@ -554,7 +548,6 @@ namespace ERPPrintingApplication
             if (e.KeyCode == Keys.Enter)
             {
                 _propSet.UPS_UPGRADE_WEIGHT = c1NumericEdit_WieghtLimit.Text;
-                Debug.WriteLine(c1NumericEdit_WieghtLimit.Text);
                 _propSet.Save();
             }
         }
@@ -570,13 +563,19 @@ namespace ERPPrintingApplication
             if ((_propSet.WAREHOUSE == 0 || _propSet.WAREHOUSE == 1) && _EUarray.Contains(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "country_id").ToString())) return false;
             else if (_propSet.WAREHOUSE == 2 && c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "country_id").ToString() == "US") return false;
             else return true;
-
         }
 
         private string ReqSign()
         {
             if (c1CheckBox_AdultSign.Checked) return "Y";
             else return "N";
+        }
+
+        private bool shipWithUPS()
+        { 
+            if(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString().Contains("UPS")) return true;
+            else if (c1CheckBox_EnableUPSForDK.Checked && Convert.ToInt16(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description")) >= Convert.ToInt16(_propSet.UPS_UPGRADE_WEIGHT)) return true;
+            else return false;
         }
     }
 }
