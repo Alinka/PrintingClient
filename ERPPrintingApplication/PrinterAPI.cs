@@ -25,7 +25,7 @@ namespace ERPPrintingApplication
             _propSet = Properties.Settings.Default;
         }
 
-        public void PrintInvoice(string address, C1FlexGrid items, string orderID)
+        internal void PrintInvoice(string address, C1FlexGrid items, string orderID)
         {
             _printInvoiceDoc = new PrintDocument();
             PaperSize pS = new PaperSize("Invoice Size", _propSet.INVOICE_PRINTER_PAPER_WIDTH, _propSet.INVOICE_PRINTER_PAPER_HEIGHT);
@@ -43,9 +43,8 @@ namespace ERPPrintingApplication
             }
             _printInvoiceDoc.Dispose();
         }
-
  
-        public void PrintLabel(string address, string value, string descUPS, bool international)
+        internal void PrintLabel(string address, string value, string descUPS, bool international)
         {
             string[] info = address.Split(new char[] { '\n' }, 2);
             
@@ -158,7 +157,6 @@ namespace ERPPrintingApplication
                 }
             }
         }
-
 
         internal void InvoicePrinterConfiguration(PrintDialog printInvoiceDialog)
         {

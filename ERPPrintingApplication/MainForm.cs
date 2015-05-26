@@ -380,17 +380,18 @@ namespace ERPPrintingApplication
             c1SplitterPanel_Items.Visible = true;
         }
 
+       
         private void c1DockingTabPage_Settings_Enter(object sender, EventArgs e)
         {
             c1ComboBox_waredhouseID.SelectedIndex = _propSet.WAREHOUSE;
         }
 
-        private void c1Button_Invoice_Print_Click(object sender, EventArgs e)
+        internal void c1Button_Invoice_Print_Click(object sender, EventArgs e)
         {
             Program.PrintService.PrintInvoice(label_orderAddressDetail.Text, c1FlexGrid_Items, label_orderNumberDetail.Text);
         }
 
-        private void c1Button_Label_Print_Click(object sender, EventArgs e)
+        internal void c1Button_Label_Print_Click(object sender, EventArgs e)
         {
             if (shipWithUPS()) 
                 Program.convertUPS.Create_UPS_XML(c1FlexGrid_ListOfOrders.RowSel, c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString(), c1FlexGrid_ListOfOrders, _countries, _upsDescription, ReqSign());
@@ -417,67 +418,17 @@ namespace ERPPrintingApplication
 
         private void FillOrderDetails(C1FlexGrid grid)
         {
+            Helper.FillAddress(label_orderNumberDetail, label_orderAddressDetail, c1FlexGrid_ListOfOrders.Rows[c1FlexGrid_ListOfOrders.RowSel], _countries);
+
             _orderID = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "increment_id").ToString();
-            label_orderNumberDetail.Text = "Order # " + _orderID;
-            string name = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_name").ToString();
-            string company = "";
-            if(grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "company") != null) company = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "company").ToString();
-            string region = "";
-            if (grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "region") != null) region = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "region").ToString();
-            string street = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "street").ToString();
-            string city = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "city").ToString();
-            string postcode = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "postcode").ToString();
-            string country = grid.GetData(c1FlexGrid_ListOfOrders.RowSel, "country_id").ToString();
 
-            label_orderAddressDetail.Text = name + "\r\n";
-            if (company != "") label_orderAddressDetail.Text += company + "\r\n";
-            label_orderAddressDetail.Text += street + "\r\n" + city + "\r\n";
-            if (region != "") label_orderAddressDetail.Text += region + "\r\n";
-            label_orderAddressDetail.Text += postcode + "\r\n";
-            label_orderAddressDetail.Text += _countries[country];
-
-            int i = 0;
-            CellRange rng = c1FlexGrid_Items.GetCellRange(1, 0, 20, 5);
+            CellRange rng = c1FlexGrid_Items.GetCellRange(1, 0, c1FlexGrid_Items.Rows.Count - 1, c1FlexGrid_Items.Cols.Count - 1);
             rng.Clear(ClearFlags.Content);
 
             MagentoSoapAPI.salesOrderEntity orderData = _orderItemArray[_orderID.ToString()];
-            int snus = 0;
-            int snuff = 0;
-            int tobfree = 0;
-            if(orderData != null)
-            {
-                foreach (MagentoSoapAPI.salesOrderItemEntity item in orderData.items)
-                {
-                    int x, y, z = 0;
-                    x = Convert.ToInt32(item.qty_ordered.Remove(item.qty_ordered.IndexOf('.')));
-                    y = Convert.ToInt32(item.qty_refunded.Remove(item.qty_refunded.IndexOf('.')));
-                    z = Convert.ToInt32(item.qty_shipped.Remove(item.qty_shipped.IndexOf('.')));
-                    int qty = x - y - z;
-                    if (i < orderData.items.Length)
-                    {
-                        if (Convert.ToInt32(item.preparation_warehouse) == _preparationWarehouse[_propSet.WAREHOUSE])
-                        {
-                            if (qty > 0)
-                            {
-                                c1FlexGrid_Items[i + 1, 0] = (i + 1).ToString();
-                                c1FlexGrid_Items[i + 1, 1] = item.name;
-                                c1FlexGrid_Items[i + 1, 2] = item.sku;
-                                c1FlexGrid_Items[i + 1, 3] = qty;
 
-                                if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Snus") || item.name.Contains("Dry")) snus++;
-                                if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Snuff")) snuff++;
-                                if (c1FlexGrid_Items[i + 1, 1].ToString().Contains("Tobacco Free")) tobfree++;
-                                
-                                i++;
-                            }
-                        }
-                    }
-                }
-            }
-            
-            if (snus > 0) _upsDescription = "Snus";
-            else if (snuff > 0) _upsDescription = "Snuff";
-            else if (tobfree > 0) _upsDescription = "Tobacco Free";
+            Helper.FillItems(orderData, c1FlexGrid_Items, _preparationWarehouse);
+
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -576,6 +527,36 @@ namespace ERPPrintingApplication
             if(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString().Contains("UPS")) return true;
             else if (c1CheckBox_EnableUPSForDK.Checked && Convert.ToInt16(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description")) >= Convert.ToInt16(_propSet.UPS_UPGRADE_WEIGHT)) return true;
             else return false;
+        }
+
+        
+
+        private void c1FlexGrid_Items_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Debug.WriteLine("Scaned code");
+            }
+        }
+
+        private void c1Button_PickPack_Click(object sender, EventArgs e)
+        {
+            foreach (Row order in c1FlexGrid_ListOfOrders.Rows.Cast<Row>().Skip(1))
+            {
+                if(order.IsVisible)
+                {
+                    using (PickPackWizardForm pickPackWiz = new PickPackWizardForm(order, _countries, _orderItemArray, _preparationWarehouse))
+                    {
+                        if (pickPackWiz.ShowDialog() == DialogResult.OK)
+                        {
+                            c1Button_Label_Print_Click(sender, e);
+                            continue;
+                        }
+                        else if (pickPackWiz.ShowDialog() == DialogResult.Ignore) continue;
+                        else if (pickPackWiz.DialogResult == DialogResult.Cancel) break;
+                    }
+                }            
+            }
         }
     }
 }

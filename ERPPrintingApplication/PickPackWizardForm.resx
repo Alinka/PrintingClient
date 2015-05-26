@@ -117,67 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="printInvoiceDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="printLabelDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>634, 17</value>
-  </metadata>
-  <metadata name="c1PrintPreviewDialog_Label.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>733, 18</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="c1PrintPreviewDialog_Label.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvY1dzYUpzYUpz
-        YUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUp8alm1noz7+Pb59fL38uz17efz6eHw5dvu
-        4dbs3dDr2szp18jo1saYiXRzYUro1sZzYUq1noz+/Pz8+fj69vL38+2tlYZzYUpzYUpzYUpzYUpzYUpz
-        YUqTgWdzYUro1sZzYUq1noz////+/f38+vj79/OtlYb1+/jO08mXloN4aVNzYUqYiXRzYUro18fo1sZz
-        YUq1noz////////+/f38+/mtlYb///+gmoqqwKuw8tWawqZzYUrs3M/p2cvo1sdzYUq1noz/////////
-        ///+/v6tlYb///95alSx9de3/eC+7Nd0ZEzu4dTs3c/q2stzYUq1noz///////////////+tlYb///+c
-        nImkxKzP8+Kyvq50ZE3w5dvu4dbs3dBzYUq1noz///////////////+tlYb////e3NainIx0Y0x0Y0xz
-        YUrz6uLx5tzu4tdzYUq1noz///////////////+tlYb///////////9zYUpzYUr48+/27+n06+Px591z
-        YUq1noz///////////////+tlYatlYatlYatlYZzYUr8+/n7+PT59O/28Or06+RzYUq1noz/////////
-        ///////////////////////////////////7+PT28Or06+RzYUpYgGNgvnZqwH92xIiDx5OQzJ2azqag
-        0Kqg0KqazqaQzJ2Dx5N2xIhqwH9gvnYzSjlbhGaIyZeKypiQzJ2TzKCazqad0Kmg0Kqg0Kqd0KmazqaT
-        zKCQzJ2KypiIyZc8V0RBXklchmhchmheiWpfi2thjW1jkXBkknFkknFjkXBhjW1fi2teiWpchmhchmhB
-        XkkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA
-</value>
-  </data>
-  <metadata name="c1PrintPreviewDialog_Invoice.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>439, 19</value>
-  </metadata>
-  <data name="c1PrintPreviewDialog_Invoice.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvY1dzYUpzYUpz
-        YUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUpzYUp8alm1noz7+Pb59fL38uz17efz6eHw5dvu
-        4dbs3dDr2szp18jo1saYiXRzYUro1sZzYUq1noz+/Pz8+fj69vL38+2tlYZzYUpzYUpzYUpzYUpzYUpz
-        YUqTgWdzYUro1sZzYUq1noz////+/f38+vj79/OtlYb1+/jO08mXloN4aVNzYUqYiXRzYUro18fo1sZz
-        YUq1noz////////+/f38+/mtlYb///+gmoqqwKuw8tWawqZzYUrs3M/p2cvo1sdzYUq1noz/////////
-        ///+/v6tlYb///95alSx9de3/eC+7Nd0ZEzu4dTs3c/q2stzYUq1noz///////////////+tlYb///+c
-        nImkxKzP8+Kyvq50ZE3w5dvu4dbs3dBzYUq1noz///////////////+tlYb////e3NainIx0Y0x0Y0xz
-        YUrz6uLx5tzu4tdzYUq1noz///////////////+tlYb///////////9zYUpzYUr48+/27+n06+Px591z
-        YUq1noz///////////////+tlYatlYatlYatlYZzYUr8+/n7+PT59O/28Or06+RzYUq1noz/////////
-        ///////////////////////////////////7+PT28Or06+RzYUpYgGNgvnZqwH92xIiDx5OQzJ2azqag
-        0Kqg0KqazqaQzJ2Dx5N2xIhqwH9gvnYzSjlbhGaIyZeKypiQzJ2TzKCazqad0Kmg0Kqg0Kqd0KmazqaT
-        zKCQzJ2KypiIyZc8V0RBXklchmhchmheiWpfi2thjW1jkXBkknFkknFjkXBhjW1fi2teiWpchmhchmhB
-        XkkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA
-</value>
-  </data>
-  <metadata name="backgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>934, 18</value>
-  </metadata>
-  <metadata name="folderBrowserDialog_UPS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1091, 18</value>
+  <metadata name="c1TextBox_BarcodeInput.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <data name="c1FlexGrid_Items.ColumnInfo" xml:space="preserve">
-    <value>6,1,0,0,0,95,Columns:0{Caption:"#";}	1{Width:286;AllowSorting:False;Name:"ItemName";Caption:"Name";AllowDragging:False;AllowResizing:False;AllowEditing:False;}	2{AllowSorting:False;Name:"ItemSku";Caption:"SKU";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	3{Width:40;AllowSorting:False;Name:"ItemQty";Caption:"Qty";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;ImageAlign:CenterTop;";}	4{AllowSorting:False;Name:"ItemBarcode";Caption:"Barcode";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:RightCenter;";}	5{Width:52;Name:"ItemPacked";Caption:"Packed";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
+    <value>10,1,0,0,0,95,Columns:1{Width:331;Name:"Name";Caption:"Name";}	2{Width:79;Caption:"SKU";}	3{Width:41;Caption:"Qty";Style:"TextAlign:CenterCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;ImageAlign:LeftCenter;";}	4{Width:66;Caption:"Qty packed";Style:"DataType:System.Int16;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	5{Caption:"Packed";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
   </data>
-  <metadata name="salesOrderPrintinfoEntityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>177, 16</value>
-  </metadata>
 </root>

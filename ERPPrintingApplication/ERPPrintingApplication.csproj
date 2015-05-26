@@ -75,6 +75,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.EnterpriseServices" />
@@ -94,11 +95,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarcodeDBDataSet.Designer.cs">
+    <Compile Include="BarcodeDataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BarcodeDBDataSet.xsd</DependentUpon>
+      <DependentUpon>BarcodeDataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FillClass.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +113,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PickPackWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickPackWizardForm.Designer.cs">
+      <DependentUpon>PickPackWizardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrinterAPI.cs" />
     <Compile Include="Program.cs" />
@@ -127,6 +135,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PickPackWizardForm.resx">
+      <DependentUpon>PickPackWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,16 +149,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="BarcodeDBDataSet.xsc">
-      <DependentUpon>BarcodeDBDataSet.xsd</DependentUpon>
+    <None Include="BarcodeDataDataSet.xsc">
+      <DependentUpon>BarcodeDataDataSet.xsd</DependentUpon>
     </None>
-    <None Include="BarcodeDBDataSet.xsd">
+    <None Include="BarcodeDataDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BarcodeDBDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>BarcodeDataDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BarcodeDBDataSet.xss">
-      <DependentUpon>BarcodeDBDataSet.xsd</DependentUpon>
+    <None Include="BarcodeDataDataSet.xss">
+      <DependentUpon>BarcodeDataDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -369,18 +380,20 @@
     <None Include="Resources\Settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BarcodeDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BarcodeDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BarcodeDB.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\cn22.jpg" />
     <None Include="Resources\tull.bmp" />
     <None Include="Resources\cn22.bmp" />
     <None Include="Resources\Porto.png" />
     <None Include="Resources\logo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BarcodeData.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BarcodeData_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>BarcodeData.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

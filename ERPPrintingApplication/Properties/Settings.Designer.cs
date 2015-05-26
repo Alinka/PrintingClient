@@ -105,17 +105,6 @@ namespace ERPPrintingApplication.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\BarcodeDB.mdf;Integr" +
-            "ated Security=True")]
-        public string BarcodeDBConnectionString {
-            get {
-                return ((string)(this["BarcodeDBConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -281,6 +270,17 @@ namespace ERPPrintingApplication.Properties {
             }
             set {
                 this["REQ_ADULT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\BarcodeData.mdf;Inte" +
+            "grated Security=True")]
+        public string BarcodeDataConnectionString {
+            get {
+                return ((string)(this["BarcodeDataConnectionString"]));
             }
         }
     }
