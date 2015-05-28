@@ -32,21 +32,19 @@
             this.label_OrderNumber = new System.Windows.Forms.Label();
             this.c1SplitContainer_PickPackOrder = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.c1SplitterPanel_OrderInfo = new C1.Win.C1SplitContainer.C1SplitterPanel();
+            this.c1Button_Next = new C1.Win.C1Input.C1Button();
             this.label_Address = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.c1TextBox_BarcodeInput = new C1.Win.C1Input.C1TextBox();
-            this.c1Button_ok = new C1.Win.C1Input.C1Button();
             this.c1SplitterPanel_ItemsOrdered = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.c1FlexGrid_Items = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.c1Button_Next = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1SplitContainer_PickPackOrder)).BeginInit();
             this.c1SplitContainer_PickPackOrder.SuspendLayout();
             this.c1SplitterPanel_OrderInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_BarcodeInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button_ok)).BeginInit();
             this.c1SplitterPanel_ItemsOrdered.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid_Items)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Next)).BeginInit();
             this.SuspendLayout();
             // 
             // label_OrderNumber
@@ -78,7 +76,6 @@
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.label_Address);
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.label1);
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.c1TextBox_BarcodeInput);
-            this.c1SplitterPanel_OrderInfo.Controls.Add(this.c1Button_ok);
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.label_OrderNumber);
             this.c1SplitterPanel_OrderInfo.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
             this.c1SplitterPanel_OrderInfo.Height = 611;
@@ -90,6 +87,17 @@
             this.c1SplitterPanel_OrderInfo.TabIndex = 0;
             this.c1SplitterPanel_OrderInfo.Text = "Shipping Details";
             this.c1SplitterPanel_OrderInfo.Width = 301;
+            // 
+            // c1Button_Next
+            // 
+            this.c1Button_Next.DialogResult = System.Windows.Forms.DialogResult.Ignore;
+            this.c1Button_Next.Location = new System.Drawing.Point(221, 564);
+            this.c1Button_Next.Name = "c1Button_Next";
+            this.c1Button_Next.Size = new System.Drawing.Size(75, 23);
+            this.c1Button_Next.TabIndex = 5;
+            this.c1Button_Next.Text = "Next Order";
+            this.c1Button_Next.UseVisualStyleBackColor = true;
+            this.c1Button_Next.Click += new System.EventHandler(this.c1Button_Next_Click);
             // 
             // label_Address
             // 
@@ -121,17 +129,6 @@
             this.c1TextBox_BarcodeInput.Tag = null;
             this.c1TextBox_BarcodeInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.c1TextBox_BarcodeInput_KeyDown);
             // 
-            // c1Button_ok
-            // 
-            this.c1Button_ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c1Button_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.c1Button_ok.Location = new System.Drawing.Point(225, 559);
-            this.c1Button_ok.Name = "c1Button_ok";
-            this.c1Button_ok.Size = new System.Drawing.Size(73, 23);
-            this.c1Button_ok.TabIndex = 0;
-            this.c1Button_ok.Text = "OK";
-            this.c1Button_ok.UseVisualStyleBackColor = true;
-            // 
             // c1SplitterPanel_ItemsOrdered
             // 
             this.c1SplitterPanel_ItemsOrdered.Controls.Add(this.c1FlexGrid_Items);
@@ -152,17 +149,6 @@
             this.c1FlexGrid_Items.Rows.DefaultSize = 19;
             this.c1FlexGrid_Items.Size = new System.Drawing.Size(972, 590);
             this.c1FlexGrid_Items.TabIndex = 0;
-            this.c1FlexGrid_Items.CellChecked += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGrid_Items_CellChecked);
-            // 
-            // c1Button_Next
-            // 
-            this.c1Button_Next.DialogResult = System.Windows.Forms.DialogResult.Ignore;
-            this.c1Button_Next.Location = new System.Drawing.Point(144, 559);
-            this.c1Button_Next.Name = "c1Button_Next";
-            this.c1Button_Next.Size = new System.Drawing.Size(75, 23);
-            this.c1Button_Next.TabIndex = 5;
-            this.c1Button_Next.Text = "Next Order";
-            this.c1Button_Next.UseVisualStyleBackColor = true;
             // 
             // PickPackWizardForm
             // 
@@ -178,11 +164,10 @@
             this.c1SplitContainer_PickPackOrder.ResumeLayout(false);
             this.c1SplitterPanel_OrderInfo.ResumeLayout(false);
             this.c1SplitterPanel_OrderInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Next)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_BarcodeInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button_ok)).EndInit();
             this.c1SplitterPanel_ItemsOrdered.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid_Items)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Next)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -193,7 +178,6 @@
         private C1.Win.C1SplitContainer.C1SplitContainer c1SplitContainer_PickPackOrder;
         private C1.Win.C1SplitContainer.C1SplitterPanel c1SplitterPanel_OrderInfo;
         private C1.Win.C1SplitContainer.C1SplitterPanel c1SplitterPanel_ItemsOrdered;
-        private C1.Win.C1Input.C1Button c1Button_ok;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox c1TextBox_BarcodeInput;
         private System.Windows.Forms.Label label_Address;

@@ -100,7 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BarcodeDataDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FillClass.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

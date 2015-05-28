@@ -21,27 +21,36 @@ namespace ERPPrintingApplication
         private MagentoSoapAPI.salesOrderEntity _orderItems;
         private Dictionary<int, int> _warehouse;
         private bool _print = false;
+        private bool _allPacked = false;
+        private bool _upsDK;
+        private bool _sign;
+        private C1FlexGrid _orderGrid;
+
         public bool Print { get { return _print; } }
 
         public PickPackWizardForm()
         {
             InitializeComponent();
-            
         }
 
-        public PickPackWizardForm(Row order, Dictionary<string, string> countries, Dictionary<string, MagentoSoapAPI.salesOrderEntity> items, Dictionary<int, int> warehouse)
+        public PickPackWizardForm(Row order, Dictionary<string, string> countries, Dictionary<string, MagentoSoapAPI.salesOrderEntity> items, Dictionary<int, int> warehouse, C1FlexGrid orderGrid, bool UPSDK, bool sign)
         {
             InitializeComponent();
             _order = order;
             _countries = countries;
             _orderItems = items[order["increment_id"].ToString()];
             _warehouse = warehouse;
+            _orderGrid = orderGrid;
+            _upsDK = UPSDK;
+            _sign = sign;
+
         }
 
         private void PickPackWizardForm_Load(object sender, EventArgs e)
         {
             Helper.FillAddress(label_OrderNumber, label_Address, _order, _countries);
             Helper.FillItems(_orderItems, c1FlexGrid_Items, _warehouse);
+            Program.PrintService.PrintInvoice(label_Address.Text, c1FlexGrid_Items, label_OrderNumber.Text);
 
             this.ActiveControl = c1TextBox_BarcodeInput;         
         }
@@ -73,7 +82,6 @@ namespace ERPPrintingApplication
             adp.Fill(table);
             if (table.Rows.Count == 0) MessageBox.Show("No product found with this barcode");
             else if (table.Rows.Count > 0) FindAndPack(table.Rows[0][1].ToString(), int.Parse(table.Rows[0][2].ToString()));
-            //Console.WriteLine(table.Rows[0][0] + " " + table.Rows[0][1] + " " + table.Rows[0][2] + " " + table.Rows[0][3]);
             c1TextBox_BarcodeInput.Clear();
             
         }
@@ -90,25 +98,23 @@ namespace ERPPrintingApplication
                     r[4] = packed;
                     if (toPack == packed)
                     {
-                        r[5] = true;                      
+                        r[5] = true;
+                        _allPacked = Helper.AllItemsPacked(c1FlexGrid_Items);
+                        if (_allPacked)
+                        {
+                            Helper.ShippingLabelPrint(_orderGrid, _countries, label_Address.Text, _upsDK, _sign);
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
                     }
                 }
             }
         }
 
-        private void c1FlexGrid_Items_CellChecked(object sender, RowColEventArgs e)
+        private void c1Button_Next_Click(object sender, EventArgs e)
         {
-            int check = 0;
-            Debug.WriteLine("Check that all the products are packed");
-            foreach (Row row in c1FlexGrid_Items.Rows.Cast<Row>().Skip(1))
-            {
-                if (c1FlexGrid_Items.GetCellCheck(row.Index, 5) == CheckEnum.Checked) check++;
-            }
-            if (c1FlexGrid_Items.Rows.Count - 1 == check)
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
     }

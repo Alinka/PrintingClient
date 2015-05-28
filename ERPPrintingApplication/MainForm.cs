@@ -262,7 +262,6 @@ namespace ERPPrintingApplication
         #endregion
         private Dictionary<int, int> _preparationWarehouse = new Dictionary<int, int>{{0, 2}, {1,4}, {2,3}};
         private Dictionary<int, string> _warehouse = new Dictionary<int, string> { {0, "Sweden"}, {1, "Denmark"}, {2, "USA"} };
-        private string[] _EUarray = { "AT", "BE", "BG", "CY", "CZ", "DE", "ES", "FR", "GB", "GR", "HU", "HR", "IE", "IT", "LT", "LU", "LV", "MT", "MC", "NL", "PL", "PT", "RO", "SI", "SE", "SK" };
         private string _upsDescription = "Snus";
         private bool _restart = false;
         
@@ -393,10 +392,7 @@ namespace ERPPrintingApplication
 
         internal void c1Button_Label_Print_Click(object sender, EventArgs e)
         {
-            if (shipWithUPS()) 
-                Program.convertUPS.Create_UPS_XML(c1FlexGrid_ListOfOrders.RowSel, c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString(), c1FlexGrid_ListOfOrders, _countries, _upsDescription, ReqSign());
-            else 
-                Program.PrintService.PrintLabel(label_orderAddressDetail.Text, Math.Round(Convert.ToDecimal(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "base_grand_total")), 0).ToString(), _upsDescription, isInternational());
+            Helper.ShippingLabelPrint(c1FlexGrid_ListOfOrders, _countries, label_orderAddressDetail.Text, c1CheckBox_EnableUPSForDK.Checked, c1CheckBox_AdultSign.Checked);
         }
 
         private void c1Button_SaveAddress_Click(object sender, EventArgs e)
@@ -509,25 +505,7 @@ namespace ERPPrintingApplication
             _propSet.Save();
         }
 
-        private bool isInternational()
-        {
-            if ((_propSet.WAREHOUSE == 0 || _propSet.WAREHOUSE == 1) && _EUarray.Contains(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "country_id").ToString())) return false;
-            else if (_propSet.WAREHOUSE == 2 && c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "country_id").ToString() == "US") return false;
-            else return true;
-        }
 
-        private string ReqSign()
-        {
-            if (c1CheckBox_AdultSign.Checked) return "Y";
-            else return "N";
-        }
-
-        private bool shipWithUPS()
-        { 
-            if(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description").ToString().Contains("UPS")) return true;
-            else if (c1CheckBox_EnableUPSForDK.Checked && Convert.ToInt16(c1FlexGrid_ListOfOrders.GetData(c1FlexGrid_ListOfOrders.RowSel, "shipping_description")) >= Convert.ToInt16(_propSet.UPS_UPGRADE_WEIGHT)) return true;
-            else return false;
-        }
 
         
 
@@ -545,14 +523,9 @@ namespace ERPPrintingApplication
             {
                 if(order.IsVisible)
                 {
-                    using (PickPackWizardForm pickPackWiz = new PickPackWizardForm(order, _countries, _orderItemArray, _preparationWarehouse))
+                    using (PickPackWizardForm pickPackWiz = new PickPackWizardForm(order, _countries, _orderItemArray, _preparationWarehouse, c1FlexGrid_ListOfOrders, c1CheckBox_EnableUPSForDK.Checked, c1CheckBox_AdultSign.Checked))
                     {
-                        if (pickPackWiz.ShowDialog() == DialogResult.OK)
-                        {
-                            c1Button_Label_Print_Click(sender, e);
-                            continue;
-                        }
-                        else if (pickPackWiz.ShowDialog() == DialogResult.Ignore) continue;
+                        if (pickPackWiz.ShowDialog() == DialogResult.OK) continue;
                         else if (pickPackWiz.DialogResult == DialogResult.Cancel) break;
                     }
                 }            

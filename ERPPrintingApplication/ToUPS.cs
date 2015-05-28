@@ -18,7 +18,7 @@ namespace ERPPrintingApplication
             _propSet = Properties.Settings.Default;
         }
         
-        internal void Create_UPS_XML(int rowN, string service, C1FlexGrid g, Dictionary<string, string> _countries, string _upsDescription, string reqSign)
+        internal void Create_UPS_XML(int rowN, string service, C1FlexGrid g, Dictionary<string, string> _countries, string reqSign)
         {           
             string xmltext = "<?xml version=\"1.0\" ?>\n<OpenShipments xmlns=\"x-schema:openshipments.xdr\">\n";
             xmltext += "\t<OpenShipment ShipmentOption=\"\" ProcessStatus=\"\" >\n";
@@ -47,7 +47,7 @@ namespace ERPPrintingApplication
             xmltext += "\t\t<ShipmentInformation>\n";
             xmltext += XMLtag("ServiceType", service);
             xmltext += XMLtag("NumberOfPackages", "1");
-            xmltext += XMLtag("DescriptionOfGoods", _upsDescription);
+            xmltext += XMLtag("DescriptionOfGoods", "Snus");
             xmltext += XMLtag("ShipperNumber", "");
             xmltext += XMLtag("BillingOption", "Prepaid");
             xmltext += XMLtag("BillTransportationTo", "");

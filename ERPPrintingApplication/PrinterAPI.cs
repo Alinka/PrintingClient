@@ -44,7 +44,7 @@ namespace ERPPrintingApplication
             _printInvoiceDoc.Dispose();
         }
  
-        internal void PrintLabel(string address, string value, string descUPS, bool international)
+        internal void PrintLabel(string address, string value, /*string descUPS,*/ bool international)
         {
             string[] info = address.Split(new char[] { '\n' }, 2);
             
@@ -53,7 +53,7 @@ namespace ERPPrintingApplication
             _printLabelDoc.DefaultPageSettings.PaperSize = pS;
             _printLabelDoc.PrinterSettings.PrinterName = _propSet.LABEL_PRINTER;
             _printLabelDoc.PrinterSettings.DefaultPageSettings.PaperSize = pS;
-            _printLabelDoc.PrintPage += (sender, e) => Label_PrintPage(e.Graphics, info[0], info[1], value, descUPS, international);
+            _printLabelDoc.PrintPage += (sender, e) => Label_PrintPage(e.Graphics, info[0], info[1], value, /*descUPS,*/ international);
             try
             {
                 _printLabelDoc.Print();
@@ -65,8 +65,9 @@ namespace ERPPrintingApplication
             _printLabelDoc.Dispose();
         }
 
-        private void Label_PrintPage(Graphics graphics, string name, string address, string value, string descUPS, bool international)
+        private void Label_PrintPage(Graphics graphics, string name, string address, string value, /*string descUPS,*/ bool international)
         {
+            
             Brush headerBrush = Brushes.DimGray;
             Font headerFont = new Font("Tahoma", 10);
             Brush bodyBrush = Brushes.Black;
@@ -81,17 +82,18 @@ namespace ERPPrintingApplication
             graphics.DrawString(name, nameFont, bodyBrush, new PointF(10, rowHeight * 6));
             SizeF sf = graphics.MeasureString(address, bodyFont, _propSet.LABEL_PRINTER_PAPER_WIDTH - 60);
             graphics.DrawString(address, bodyFont, bodyBrush, new RectangleF(new PointF(10.0f, rowHeight * 7), sf), StringFormat.GenericTypographic);
-
             if (_propSet.WAREHOUSE == 2 && !international )
             {
                 graphics.DrawImage(Properties.Resources.cn22, _propSet.LABEL_PRINTER_PAPER_WIDTH - 200, 14 * rowHeight, 180, 217);
-                graphics.DrawString(descUPS, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 190, 18 * rowHeight);
+                //graphics.DrawString(descUPS, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 190, 18 * rowHeight);
                 graphics.DrawString("€" + value, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 55, 18 * rowHeight);
+               
+            
             }
             else if (_propSet.WAREHOUSE == 0 || (_propSet.WAREHOUSE == 1 && !international ))
             {
                 graphics.DrawImage(Properties.Resources.tull, _propSet.LABEL_PRINTER_PAPER_WIDTH - 160, _posY + (11 * rowHeight), 140, 225);
-                graphics.DrawString(descUPS, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 150, 15 * rowHeight + 5);
+                //graphics.DrawString(descUPS, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 150, 15 * rowHeight + 5);
                 graphics.DrawString("€" + value, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 60, 15 * rowHeight + 5);
             }
 
