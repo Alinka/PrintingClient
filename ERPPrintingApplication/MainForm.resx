@@ -120,6 +120,9 @@
   <metadata name="printInvoiceDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="c1FlexGrid_Items.ColumnInfo" xml:space="preserve">
+    <value>6,1,0,0,0,95,Columns:0{Caption:"#";}	1{Width:286;AllowSorting:False;Name:"ItemName";Caption:"Name";AllowDragging:False;AllowResizing:False;AllowEditing:False;}	2{AllowSorting:False;Name:"ItemSku";Caption:"SKU";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	3{Width:40;AllowSorting:False;Name:"ItemQty";Caption:"Qty";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;ImageAlign:CenterTop;";}	4{AllowSorting:False;Name:"ItemBarcode";Caption:"Barcode";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:RightCenter;";}	5{Width:52;Name:"ItemPacked";Caption:"Packed";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
+  </data>
   <metadata name="printLabelDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>634, 17</value>
   </metadata>
@@ -174,9 +177,6 @@
   <metadata name="folderBrowserDialog_UPS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1091, 18</value>
   </metadata>
-  <data name="c1FlexGrid_Items.ColumnInfo" xml:space="preserve">
-    <value>6,1,0,0,0,95,Columns:0{Caption:"#";}	1{Width:286;AllowSorting:False;Name:"ItemName";Caption:"Name";AllowDragging:False;AllowResizing:False;AllowEditing:False;}	2{AllowSorting:False;Name:"ItemSku";Caption:"SKU";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	3{Width:40;AllowSorting:False;Name:"ItemQty";Caption:"Qty";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;ImageAlign:CenterTop;";}	4{AllowSorting:False;Name:"ItemBarcode";Caption:"Barcode";AllowDragging:False;AllowResizing:False;AllowEditing:False;Style:"TextAlign:RightCenter;";}	5{Width:52;Name:"ItemPacked";Caption:"Packed";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
-  </data>
   <metadata name="salesOrderPrintinfoEntityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>177, 16</value>
   </metadata>

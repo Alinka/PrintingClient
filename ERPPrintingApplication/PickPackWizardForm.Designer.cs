@@ -149,6 +149,7 @@
             this.c1FlexGrid_Items.Rows.DefaultSize = 19;
             this.c1FlexGrid_Items.Size = new System.Drawing.Size(972, 590);
             this.c1FlexGrid_Items.TabIndex = 0;
+            this.c1FlexGrid_Items.CellChecked += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGrid_Items_CellChecked);
             // 
             // PickPackWizardForm
             // 

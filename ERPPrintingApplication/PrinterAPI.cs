@@ -46,6 +46,7 @@ namespace ERPPrintingApplication
  
         internal void PrintLabel(string address, string value, /*string descUPS,*/ bool international)
         {
+            Debug.WriteLine("PrinterApi: PrintLebel");
             string[] info = address.Split(new char[] { '\n' }, 2);
             
             _printLabelDoc = new PrintDocument();

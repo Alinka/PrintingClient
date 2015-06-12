@@ -294,6 +294,7 @@ namespace ERPPrintingApplication
             c1TextBox_ReturnAddress1.DisableOnNoData = false;
             c1TextBox_ReturnAddress1.Text = _propSet.RETURN_ADDRESS1;
             c1TextBox_ReturnAddress2.Text = _propSet.RETURN_ADDRESS2;
+            
          }
 
         private void c1Button_InvoicePrinterConfig_Click(object sender, EventArgs e)
@@ -392,6 +393,7 @@ namespace ERPPrintingApplication
 
         internal void c1Button_Label_Print_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("c1Button_Label_Print_Click");
             Helper.ShippingLabelPrint(c1FlexGrid_ListOfOrders, _countries, label_orderAddressDetail.Text, c1CheckBox_EnableUPSForDK.Checked, c1CheckBox_AdultSign.Checked);
         }
 
@@ -525,7 +527,7 @@ namespace ERPPrintingApplication
                 {
                     using (PickPackWizardForm pickPackWiz = new PickPackWizardForm(order, _countries, _orderItemArray, _preparationWarehouse, c1FlexGrid_ListOfOrders, c1CheckBox_EnableUPSForDK.Checked, c1CheckBox_AdultSign.Checked))
                     {
-                        if (pickPackWiz.ShowDialog() == DialogResult.OK) continue;
+                        if (pickPackWiz.ShowDialog(this) == DialogResult.OK) continue;
                         else if (pickPackWiz.DialogResult == DialogResult.Cancel) break;
                     }
                 }            

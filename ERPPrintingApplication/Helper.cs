@@ -100,6 +100,7 @@ namespace ERPPrintingApplication
 
         internal static void ShippingLabelPrint(C1FlexGrid grid, Dictionary<string, string> _countries, string address, bool UPSForDK, bool adult)
         {
+            Debug.WriteLine("Helper: Shipping Label Print");
             if (shipWithUPS(grid, UPSForDK))
                 Program.convertUPS.Create_UPS_XML(grid.RowSel, grid.GetData(grid.RowSel, "shipping_description").ToString(), grid, _countries, ReqSign(adult));
             else

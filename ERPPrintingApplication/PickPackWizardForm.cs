@@ -50,9 +50,28 @@ namespace ERPPrintingApplication
         {
             Helper.FillAddress(label_OrderNumber, label_Address, _order, _countries);
             Helper.FillItems(_orderItems, c1FlexGrid_Items, _warehouse);
-            Program.PrintService.PrintInvoice(label_Address.Text, c1FlexGrid_Items, label_OrderNumber.Text);
+            DisableCheckbox();
+            //Program.PrintService.PrintInvoice(label_Address.Text, c1FlexGrid_Items, label_OrderNumber.Text);
 
             this.ActiveControl = c1TextBox_BarcodeInput;         
+        }
+
+        private void DisableCheckbox()
+        {
+            foreach (Row row in c1FlexGrid_Items.Rows.Cast<Row>().Skip(1))
+            {
+                string selectStr = "SELECT * FROM barcode WHERE sku='" + row[2] + "'";
+                Debug.WriteLine(row[2]);
+                string connectionString = Properties.Settings.Default.BarcodeDataConnectionString; // @"Data Source=C:\Users\Alina\Source\Repos\PrintingApplication\ERPPrintingApplication\BarcodeData.mdf;Persist Security Info=False;";
+                DataSet result = new DataSet();
+                SqlConnection con = new SqlConnection(connectionString);
+                DataTable table = new DataTable();
+                SqlDataAdapter adp = new SqlDataAdapter(selectStr, con);
+                con.Open();
+                adp.Fill(table);
+                if (table.Rows.Count != 0) Debug.WriteLine(""); 
+                c1FlexGrid_Items[row.DataIndex, 5].ToString();
+            }
         }
 
         private void c1TextBox_BarcodeInput_KeyDown(object sender, KeyEventArgs e)
@@ -115,6 +134,17 @@ namespace ERPPrintingApplication
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void c1FlexGrid_Items_CellChecked(object sender, RowColEventArgs e)
+        {
+            _allPacked = Helper.AllItemsPacked(c1FlexGrid_Items);
+            if (_allPacked)
+            {
+                Helper.ShippingLabelPrint(_orderGrid, _countries, label_Address.Text, _upsDK, _sign);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
     }

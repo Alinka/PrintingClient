@@ -32,15 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.printInvoiceDialog = new System.Windows.Forms.PrintDialog();
             this.c1DockingTab_Main = new C1.Win.C1Command.C1DockingTab();
-            this.c1Button_Refresh = new C1.Win.C1Input.C1Button();
-            this.printLabelDialog = new System.Windows.Forms.PrintDialog();
-            this.c1PrintPreviewDialog_Label = new C1.Win.C1Preview.C1PrintPreviewDialog();
-            this.c1PrintPreviewDialog_Invoice = new C1.Win.C1Preview.C1PrintPreviewDialog();
-            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.c1StatusBar = new C1.Win.C1Ribbon.C1StatusBar();
-            this.ribbonLabel_Progress = new C1.Win.C1Ribbon.RibbonLabel();
-            this.ribbonProgressBar = new C1.Win.C1Ribbon.RibbonProgressBar();
-            this.folderBrowserDialog_UPS = new System.Windows.Forms.FolderBrowserDialog();
             this.c1DockingTabPage_PrepareOrders = new C1.Win.C1Command.C1DockingTabPage();
             this.c1SplitContainer = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.c1SplitterPanel_OrderList = new C1.Win.C1SplitContainer.C1SplitterPanel();
@@ -80,20 +71,19 @@
             this.label_InvoicePrinterSettings = new System.Windows.Forms.Label();
             this.c1ComboBox_waredhouseID = new C1.Win.C1Input.C1ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.c1Button_Refresh = new C1.Win.C1Input.C1Button();
+            this.printLabelDialog = new System.Windows.Forms.PrintDialog();
+            this.c1PrintPreviewDialog_Label = new C1.Win.C1Preview.C1PrintPreviewDialog();
+            this.c1PrintPreviewDialog_Invoice = new C1.Win.C1Preview.C1PrintPreviewDialog();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.c1StatusBar = new C1.Win.C1Ribbon.C1StatusBar();
+            this.ribbonLabel_Progress = new C1.Win.C1Ribbon.RibbonLabel();
+            this.ribbonProgressBar = new C1.Win.C1Ribbon.RibbonProgressBar();
+            this.folderBrowserDialog_UPS = new System.Windows.Forms.FolderBrowserDialog();
             this.salesOrderPrintinfoEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.c1Button_PickPack = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab_Main)).BeginInit();
             this.c1DockingTab_Main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Refresh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane)).BeginInit();
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.SuspendLayout();
-            this.c1PrintPreviewDialog_Label.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane)).BeginInit();
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.SuspendLayout();
-            this.c1PrintPreviewDialog_Invoice.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).BeginInit();
             this.c1DockingTabPage_PrepareOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1SplitContainer)).BeginInit();
             this.c1SplitContainer.SuspendLayout();
@@ -115,6 +105,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_LabelPrinterConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_InvoicePrinterConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox_waredhouseID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Refresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane)).BeginInit();
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.SuspendLayout();
+            this.c1PrintPreviewDialog_Label.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane)).BeginInit();
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.SuspendLayout();
+            this.c1PrintPreviewDialog_Invoice.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_PickPack)).BeginInit();
             this.SuspendLayout();
@@ -140,157 +140,6 @@
             this.c1DockingTab_Main.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2003;
             this.c1DockingTab_Main.VisualStyle = C1.Win.C1Command.VisualStyle.Office2003Blue;
             this.c1DockingTab_Main.VisualStyleBase = C1.Win.C1Command.VisualStyle.Office2003Blue;
-            // 
-            // c1Button_Refresh
-            // 
-            this.c1Button_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.c1Button_Refresh.Location = new System.Drawing.Point(1379, 10);
-            this.c1Button_Refresh.Name = "c1Button_Refresh";
-            this.c1Button_Refresh.Size = new System.Drawing.Size(75, 23);
-            this.c1Button_Refresh.TabIndex = 23;
-            this.c1Button_Refresh.Text = "Refresh";
-            this.c1Button_Refresh.UseVisualStyleBackColor = true;
-            this.c1Button_Refresh.Click += new System.EventHandler(this.c1ComboBox_waredhouseID_SelectedItemChanged);
-            // 
-            // printLabelDialog
-            // 
-            this.printLabelDialog.UseEXDialog = true;
-            // 
-            // c1PrintPreviewDialog_Label
-            // 
-            this.c1PrintPreviewDialog_Label.ClientSize = new System.Drawing.Size(716, 543);
-            this.c1PrintPreviewDialog_Label.Icon = ((System.Drawing.Icon)(resources.GetObject("c1PrintPreviewDialog_Label.Icon")));
-            this.c1PrintPreviewDialog_Label.Name = "C1PrintPreviewDialog";
-            // 
-            // c1PrintPreviewDialog_Label.PrintPreviewControl
-            // 
-            // 
-            // c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane
-            // 
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane.IntegrateExternalTools = true;
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane.TabIndex = 0;
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.Text = "c1PrintPreviewControl1";
-            // 
-            // 
-            // 
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoFirst,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoPrev,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.LblPage,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.PageNo,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.LblOfPages,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoNext,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoLast,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.HistoryPrev,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.HistoryNext});
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Location = new System.Drawing.Point(292, 0);
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Name = "navigationStrip";
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Size = new System.Drawing.Size(264, 25);
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.TabIndex = 2;
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolTipPageNo = null;
-            // 
-            // 
-            // 
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchLabel,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchText,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchNext,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchPrevious,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.MatchCase,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.MatchWholeWord,
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.CloseSearch});
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Name = "searchStrip";
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Size = new System.Drawing.Size(444, 25);
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.TabIndex = 6;
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Tag = "C1PreviewSearchToolStrip";
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Visible = false;
-            this.c1PrintPreviewDialog_Label.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Auto;
-            this.c1PrintPreviewDialog_Label.Text = "c1PrintPreviewDialog1";
-            // 
-            // c1PrintPreviewDialog_Invoice
-            // 
-            this.c1PrintPreviewDialog_Invoice.ClientSize = new System.Drawing.Size(716, 543);
-            this.c1PrintPreviewDialog_Invoice.Icon = ((System.Drawing.Icon)(resources.GetObject("c1PrintPreviewDialog_Invoice.Icon")));
-            this.c1PrintPreviewDialog_Invoice.Name = "C1PrintPreviewDialog";
-            // 
-            // c1PrintPreviewDialog_Invoice.PrintPreviewControl
-            // 
-            // 
-            // c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane
-            // 
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane.IntegrateExternalTools = true;
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane.TabIndex = 0;
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.Text = "c1PrintPreviewControl1";
-            // 
-            // 
-            // 
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoFirst,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoPrev,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.LblPage,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.PageNo,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.LblOfPages,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoNext,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoLast,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.HistoryPrev,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.HistoryNext});
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Location = new System.Drawing.Point(292, 0);
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Name = "navigationStrip";
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Size = new System.Drawing.Size(264, 25);
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.TabIndex = 2;
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolTipPageNo = null;
-            // 
-            // 
-            // 
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchLabel,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchText,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchNext,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchPrevious,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.MatchCase,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.MatchWholeWord,
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.CloseSearch});
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Name = "searchStrip";
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Size = new System.Drawing.Size(444, 25);
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.TabIndex = 6;
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Tag = "C1PreviewSearchToolStrip";
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Visible = false;
-            this.c1PrintPreviewDialog_Invoice.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Auto;
-            this.c1PrintPreviewDialog_Invoice.Text = "c1PrintPreviewDialog1";
-            // 
-            // backgroundWorker
-            // 
-            this.backgroundWorker.WorkerReportsProgress = true;
-            this.backgroundWorker.WorkerSupportsCancellation = true;
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
-            // 
-            // c1StatusBar
-            // 
-            this.c1StatusBar.LeftPaneItems.Add(this.ribbonLabel_Progress);
-            this.c1StatusBar.LeftPaneItems.Add(this.ribbonProgressBar);
-            this.c1StatusBar.Location = new System.Drawing.Point(0, 739);
-            this.c1StatusBar.Margin = new System.Windows.Forms.Padding(10);
-            this.c1StatusBar.Name = "c1StatusBar";
-            this.c1StatusBar.Size = new System.Drawing.Size(1463, 22);
-            // 
-            // ribbonLabel_Progress
-            // 
-            this.ribbonLabel_Progress.Name = "ribbonLabel_Progress";
-            this.ribbonLabel_Progress.Text = "Label";
-            // 
-            // ribbonProgressBar
-            // 
-            this.ribbonProgressBar.Height = 20;
-            this.ribbonProgressBar.Name = "ribbonProgressBar";
-            this.ribbonProgressBar.Width = 1000;
             // 
             // c1DockingTabPage_PrepareOrders
             // 
@@ -742,6 +591,157 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Current Warehouse:";
             // 
+            // c1Button_Refresh
+            // 
+            this.c1Button_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.c1Button_Refresh.Location = new System.Drawing.Point(1379, 10);
+            this.c1Button_Refresh.Name = "c1Button_Refresh";
+            this.c1Button_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.c1Button_Refresh.TabIndex = 23;
+            this.c1Button_Refresh.Text = "Refresh";
+            this.c1Button_Refresh.UseVisualStyleBackColor = true;
+            this.c1Button_Refresh.Click += new System.EventHandler(this.c1ComboBox_waredhouseID_SelectedItemChanged);
+            // 
+            // printLabelDialog
+            // 
+            this.printLabelDialog.UseEXDialog = true;
+            // 
+            // c1PrintPreviewDialog_Label
+            // 
+            this.c1PrintPreviewDialog_Label.ClientSize = new System.Drawing.Size(716, 543);
+            this.c1PrintPreviewDialog_Label.Icon = ((System.Drawing.Icon)(resources.GetObject("c1PrintPreviewDialog_Label.Icon")));
+            this.c1PrintPreviewDialog_Label.Name = "C1PrintPreviewDialog";
+            // 
+            // c1PrintPreviewDialog_Label.PrintPreviewControl
+            // 
+            // 
+            // c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane
+            // 
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane.IntegrateExternalTools = true;
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane.TabIndex = 0;
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.Text = "c1PrintPreviewControl1";
+            // 
+            // 
+            // 
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoFirst,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoPrev,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.LblPage,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.PageNo,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.LblOfPages,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoNext,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.GoLast,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.HistoryPrev,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.HistoryNext});
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Location = new System.Drawing.Point(292, 0);
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Name = "navigationStrip";
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Size = new System.Drawing.Size(270, 25);
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolStrip.TabIndex = 2;
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Navigation.ToolTipPageNo = null;
+            // 
+            // 
+            // 
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchLabel,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchText,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchNext,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.SearchPrevious,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.MatchCase,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.MatchWholeWord,
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.CloseSearch});
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Name = "searchStrip";
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Size = new System.Drawing.Size(444, 25);
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.TabIndex = 6;
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Tag = "C1PreviewSearchToolStrip";
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ToolBars.Search.ToolStrip.Visible = false;
+            this.c1PrintPreviewDialog_Label.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Auto;
+            this.c1PrintPreviewDialog_Label.Text = "c1PrintPreviewDialog1";
+            // 
+            // c1PrintPreviewDialog_Invoice
+            // 
+            this.c1PrintPreviewDialog_Invoice.ClientSize = new System.Drawing.Size(716, 543);
+            this.c1PrintPreviewDialog_Invoice.Icon = ((System.Drawing.Icon)(resources.GetObject("c1PrintPreviewDialog_Invoice.Icon")));
+            this.c1PrintPreviewDialog_Invoice.Name = "C1PrintPreviewDialog";
+            // 
+            // c1PrintPreviewDialog_Invoice.PrintPreviewControl
+            // 
+            // 
+            // c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane
+            // 
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane.IntegrateExternalTools = true;
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane.TabIndex = 0;
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.Text = "c1PrintPreviewControl1";
+            // 
+            // 
+            // 
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoFirst,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoPrev,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.LblPage,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.PageNo,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.LblOfPages,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoNext,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.GoLast,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.HistoryPrev,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.HistoryNext});
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Location = new System.Drawing.Point(292, 0);
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Name = "navigationStrip";
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.Size = new System.Drawing.Size(270, 25);
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolStrip.TabIndex = 2;
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Navigation.ToolTipPageNo = null;
+            // 
+            // 
+            // 
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchLabel,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchText,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchNext,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.SearchPrevious,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.MatchCase,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.MatchWholeWord,
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.CloseSearch});
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Name = "searchStrip";
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Size = new System.Drawing.Size(444, 25);
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.TabIndex = 6;
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Tag = "C1PreviewSearchToolStrip";
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ToolBars.Search.ToolStrip.Visible = false;
+            this.c1PrintPreviewDialog_Invoice.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Auto;
+            this.c1PrintPreviewDialog_Invoice.Text = "c1PrintPreviewDialog1";
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.WorkerReportsProgress = true;
+            this.backgroundWorker.WorkerSupportsCancellation = true;
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
+            // c1StatusBar
+            // 
+            this.c1StatusBar.LeftPaneItems.Add(this.ribbonLabel_Progress);
+            this.c1StatusBar.LeftPaneItems.Add(this.ribbonProgressBar);
+            this.c1StatusBar.Location = new System.Drawing.Point(0, 739);
+            this.c1StatusBar.Margin = new System.Windows.Forms.Padding(10);
+            this.c1StatusBar.Name = "c1StatusBar";
+            this.c1StatusBar.Size = new System.Drawing.Size(1463, 22);
+            // 
+            // ribbonLabel_Progress
+            // 
+            this.ribbonLabel_Progress.Name = "ribbonLabel_Progress";
+            this.ribbonLabel_Progress.Text = "Label";
+            // 
+            // ribbonProgressBar
+            // 
+            this.ribbonProgressBar.Height = 20;
+            this.ribbonProgressBar.Name = "ribbonProgressBar";
+            this.ribbonProgressBar.Width = 1000;
+            // 
             // salesOrderPrintinfoEntityBindingSource
             // 
             this.salesOrderPrintinfoEntityBindingSource.DataSource = typeof(ERPPrintingApplication.MagentoSoapAPI.salesOrderPrintinfoEntity);
@@ -771,18 +771,6 @@
             this.Text = "Printing Application";
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab_Main)).EndInit();
             this.c1DockingTab_Main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Refresh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl)).EndInit();
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ResumeLayout(false);
-            this.c1PrintPreviewDialog_Label.PrintPreviewControl.PerformLayout();
-            this.c1PrintPreviewDialog_Label.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl)).EndInit();
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ResumeLayout(false);
-            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PerformLayout();
-            this.c1PrintPreviewDialog_Invoice.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).EndInit();
             this.c1DockingTabPage_PrepareOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1SplitContainer)).EndInit();
             this.c1SplitContainer.ResumeLayout(false);
@@ -806,6 +794,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_LabelPrinterConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_InvoicePrinterConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox_waredhouseID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_Refresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl.PreviewPane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Label.PrintPreviewControl)).EndInit();
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.ResumeLayout(false);
+            this.c1PrintPreviewDialog_Label.PrintPreviewControl.PerformLayout();
+            this.c1PrintPreviewDialog_Label.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PreviewPane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PrintPreviewDialog_Invoice.PrintPreviewControl)).EndInit();
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.ResumeLayout(false);
+            this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PerformLayout();
+            this.c1PrintPreviewDialog_Invoice.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_PickPack)).EndInit();
             this.ResumeLayout(false);
