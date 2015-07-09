@@ -14,7 +14,6 @@ namespace ERPPrintingApplication
     class PrinterAPI
     {
         private Properties.Settings _propSet;
-        
         private PrintDocument _printInvoiceDoc;
         private PrintDocument _printLabelDoc;
         private int _posX = 10;
@@ -88,8 +87,6 @@ namespace ERPPrintingApplication
                 graphics.DrawImage(Properties.Resources.cn22, _propSet.LABEL_PRINTER_PAPER_WIDTH - 200, 14 * rowHeight, 180, 217);
                 //graphics.DrawString(descUPS, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 190, 18 * rowHeight);
                 graphics.DrawString("€" + value, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 55, 18 * rowHeight);
-               
-            
             }
             else if (_propSet.WAREHOUSE == 0 || (_propSet.WAREHOUSE == 1 && !international ))
             {
@@ -98,11 +95,8 @@ namespace ERPPrintingApplication
                 graphics.DrawString("€" + value, headerFont, bodyBrush, _propSet.LABEL_PRINTER_PAPER_WIDTH - 60, 15 * rowHeight + 5);
             }
 
-
-
             bodyFont.Dispose();
             headerFont.Dispose();
-
         }
 
         private void Invoice_PrintPage(Graphics graphics, string address, C1FlexGrid grid, string id)
@@ -117,7 +111,6 @@ namespace ERPPrintingApplication
             Rectangle shipStrip = new Rectangle(_posX, _posY + 10 + rowHeight * 4, _propSet.INVOICE_PRINTER_PAPER_WIDTH - _posY, rowHeight + 4);
             Rectangle itemsStrip = new Rectangle(_posX, _posY + 10 + rowHeight * 12, _propSet.INVOICE_PRINTER_PAPER_WIDTH - _posY, rowHeight + 4);
             
-
             StringFormat centerAling = new StringFormat();
             centerAling.Alignment = StringAlignment.Center;
             strCenterCol.LineAlignment = StringAlignment.Center;
@@ -141,10 +134,8 @@ namespace ERPPrintingApplication
                 graphics.DrawString("SKU", font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH / 2 + 110, _posY + rowHeight * 14, StringFormat.GenericTypographic);
                 graphics.DrawString("Qty", font, brush, _propSet.INVOICE_PRINTER_PAPER_WIDTH - 80, _posY + rowHeight * 14, StringFormat.GenericTypographic);
            
-
                 for (int i = 1; i < grid.Rows.Count; i++)
-                {
-                
+                {                
                     if (grid[i, 1] != null)
                     {
                         if (i % 2 != 0)

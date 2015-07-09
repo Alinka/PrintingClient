@@ -32,6 +32,7 @@
             this.label_OrderNumber = new System.Windows.Forms.Label();
             this.c1SplitContainer_PickPackOrder = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.c1SplitterPanel_OrderInfo = new C1.Win.C1SplitContainer.C1SplitterPanel();
+            this.c1Button_PartialShipment = new C1.Win.C1Input.C1Button();
             this.c1Button_Next = new C1.Win.C1Input.C1Button();
             this.label_Address = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1SplitContainer_PickPackOrder)).BeginInit();
             this.c1SplitContainer_PickPackOrder.SuspendLayout();
             this.c1SplitterPanel_OrderInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_PartialShipment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_Next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_BarcodeInput)).BeginInit();
             this.c1SplitterPanel_ItemsOrdered.SuspendLayout();
@@ -72,6 +74,7 @@
             // 
             // c1SplitterPanel_OrderInfo
             // 
+            this.c1SplitterPanel_OrderInfo.Controls.Add(this.c1Button_PartialShipment);
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.c1Button_Next);
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.label_Address);
             this.c1SplitterPanel_OrderInfo.Controls.Add(this.label1);
@@ -87,6 +90,16 @@
             this.c1SplitterPanel_OrderInfo.TabIndex = 0;
             this.c1SplitterPanel_OrderInfo.Text = "Shipping Details";
             this.c1SplitterPanel_OrderInfo.Width = 301;
+            // 
+            // c1Button_PartialShipment
+            // 
+            this.c1Button_PartialShipment.Location = new System.Drawing.Point(4, 564);
+            this.c1Button_PartialShipment.Name = "c1Button_PartialShipment";
+            this.c1Button_PartialShipment.Size = new System.Drawing.Size(105, 23);
+            this.c1Button_PartialShipment.TabIndex = 6;
+            this.c1Button_PartialShipment.Text = "Partial Shipment";
+            this.c1Button_PartialShipment.UseVisualStyleBackColor = true;
+            this.c1Button_PartialShipment.Click += new System.EventHandler(this.c1Button_PartialShipment_Click);
             // 
             // c1Button_Next
             // 
@@ -165,6 +178,7 @@
             this.c1SplitContainer_PickPackOrder.ResumeLayout(false);
             this.c1SplitterPanel_OrderInfo.ResumeLayout(false);
             this.c1SplitterPanel_OrderInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_PartialShipment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_Next)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_BarcodeInput)).EndInit();
             this.c1SplitterPanel_ItemsOrdered.ResumeLayout(false);
@@ -184,5 +198,6 @@
         private System.Windows.Forms.Label label_Address;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid_Items;
         private C1.Win.C1Input.C1Button c1Button_Next;
+        private C1.Win.C1Input.C1Button c1Button_PartialShipment;
     }
 }

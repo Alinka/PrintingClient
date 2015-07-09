@@ -45,6 +45,14 @@
             this.c1SplitterPanel_Items = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.c1FlexGrid_Items = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.c1DockingTabPage_Settings = new C1.Win.C1Command.C1DockingTabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.c1Button_AddNewProdut = new C1.Win.C1Input.C1Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.c1TextBox_BracodeData = new C1.Win.C1Input.C1TextBox();
+            this.c1TextBox_RollQty = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.c1ComboBox_Products = new C1.Win.C1Input.C1ComboBox();
             this.c1CheckBox_AdultSign = new C1.Win.C1Input.C1CheckBox();
             this.c1NumericEdit_WieghtLimit = new C1.Win.C1Input.C1NumericEdit();
             this.c1CheckBox_EnableUPSForDK = new C1.Win.C1Input.C1CheckBox();
@@ -80,8 +88,9 @@
             this.ribbonLabel_Progress = new C1.Win.C1Ribbon.RibbonLabel();
             this.ribbonProgressBar = new C1.Win.C1Ribbon.RibbonProgressBar();
             this.folderBrowserDialog_UPS = new System.Windows.Forms.FolderBrowserDialog();
-            this.salesOrderPrintinfoEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.c1Button_PickPack = new C1.Win.C1Input.C1Button();
+            this.salesOrderPrintinfoEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.catalogProductCustomOptionTypesEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab_Main)).BeginInit();
             this.c1DockingTab_Main.SuspendLayout();
             this.c1DockingTabPage_PrepareOrders.SuspendLayout();
@@ -95,6 +104,10 @@
             this.c1SplitterPanel_Items.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid_Items)).BeginInit();
             this.c1DockingTabPage_Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_AddNewProdut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_BracodeData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_RollQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox_Products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_AdultSign)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1NumericEdit_WieghtLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_EnableUPSForDK)).BeginInit();
@@ -115,8 +128,9 @@
             this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.SuspendLayout();
             this.c1PrintPreviewDialog_Invoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_PickPack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogProductCustomOptionTypesEntityBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // printInvoiceDialog
@@ -131,6 +145,7 @@
             this.c1DockingTab_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1DockingTab_Main.Indent = 2;
             this.c1DockingTab_Main.Location = new System.Drawing.Point(0, 0);
+            this.c1DockingTab_Main.MultiLine = true;
             this.c1DockingTab_Main.Name = "c1DockingTab_Main";
             this.c1DockingTab_Main.Padding = new System.Drawing.Point(5, 5);
             this.c1DockingTab_Main.Size = new System.Drawing.Size(1463, 739);
@@ -182,8 +197,9 @@
             // c1FlexGrid_ListOfOrders
             // 
             this.c1FlexGrid_ListOfOrders.AllowFiltering = true;
-            this.c1FlexGrid_ListOfOrders.ColumnInfo = "15,1,0,0,0,95,Columns:1{AllowSorting:False;AllowFiltering:None;AllowDragging:Fals" +
-    "e;AllowResizing:False;AllowEditing:False;}\t";
+            this.c1FlexGrid_ListOfOrders.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.MultiColumn;
+            this.c1FlexGrid_ListOfOrders.ColumnInfo = "15,1,0,0,0,95,Columns:1{AllowFiltering:None;AllowDragging:False;AllowResizing:Fal" +
+    "se;AllowEditing:False;}\t2{AllowFiltering:None;Style:\"\";StyleFixed:\"\";}\t";
             this.c1FlexGrid_ListOfOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1FlexGrid_ListOfOrders.ExtendLastCol = true;
             this.c1FlexGrid_ListOfOrders.Location = new System.Drawing.Point(0, 0);
@@ -293,6 +309,14 @@
             // 
             // c1DockingTabPage_Settings
             // 
+            this.c1DockingTabPage_Settings.Controls.Add(this.label7);
+            this.c1DockingTabPage_Settings.Controls.Add(this.c1Button_AddNewProdut);
+            this.c1DockingTabPage_Settings.Controls.Add(this.label6);
+            this.c1DockingTabPage_Settings.Controls.Add(this.c1TextBox_BracodeData);
+            this.c1DockingTabPage_Settings.Controls.Add(this.c1TextBox_RollQty);
+            this.c1DockingTabPage_Settings.Controls.Add(this.label5);
+            this.c1DockingTabPage_Settings.Controls.Add(this.label4);
+            this.c1DockingTabPage_Settings.Controls.Add(this.c1ComboBox_Products);
             this.c1DockingTabPage_Settings.Controls.Add(this.c1CheckBox_AdultSign);
             this.c1DockingTabPage_Settings.Controls.Add(this.c1NumericEdit_WieghtLimit);
             this.c1DockingTabPage_Settings.Controls.Add(this.c1CheckBox_EnableUPSForDK);
@@ -327,10 +351,88 @@
             this.c1DockingTabPage_Settings.Text = "Settings";
             this.c1DockingTabPage_Settings.Enter += new System.EventHandler(this.c1DockingTabPage_Settings_Enter);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 190);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 13);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Add New Product:";
+            // 
+            // c1Button_AddNewProdut
+            // 
+            this.c1Button_AddNewProdut.Location = new System.Drawing.Point(120, 350);
+            this.c1Button_AddNewProdut.Name = "c1Button_AddNewProdut";
+            this.c1Button_AddNewProdut.Size = new System.Drawing.Size(160, 23);
+            this.c1Button_AddNewProdut.TabIndex = 39;
+            this.c1Button_AddNewProdut.Text = "Add New Product";
+            this.c1Button_AddNewProdut.UseVisualStyleBackColor = true;
+            this.c1Button_AddNewProdut.Click += new System.EventHandler(this.c1Button_AddNewProdut_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 300);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Barcode:";
+            // 
+            // c1TextBox_BracodeData
+            // 
+            this.c1TextBox_BracodeData.Location = new System.Drawing.Point(10, 320);
+            this.c1TextBox_BracodeData.Name = "c1TextBox_BracodeData";
+            this.c1TextBox_BracodeData.Size = new System.Drawing.Size(191, 18);
+            this.c1TextBox_BracodeData.TabIndex = 37;
+            this.c1TextBox_BracodeData.Tag = null;
+            // 
+            // c1TextBox_RollQty
+            // 
+            this.c1TextBox_RollQty.Location = new System.Drawing.Point(10, 275);
+            this.c1TextBox_RollQty.Name = "c1TextBox_RollQty";
+            this.c1TextBox_RollQty.Size = new System.Drawing.Size(39, 18);
+            this.c1TextBox_RollQty.TabIndex = 36;
+            this.c1TextBox_RollQty.Tag = null;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 255);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Qty (1, 5, 10 cans barcode):";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(208, 13);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Start writing product SKU you want to add:";
+            // 
+            // c1ComboBox_Products
+            // 
+            this.c1ComboBox_Products.AllowSpinLoop = false;
+            this.c1ComboBox_Products.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.c1ComboBox_Products.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.c1ComboBox_Products.GapHeight = 0;
+            this.c1ComboBox_Products.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.c1ComboBox_Products.ItemsDisplayMember = "";
+            this.c1ComboBox_Products.ItemsValueMember = "";
+            this.c1ComboBox_Products.Location = new System.Drawing.Point(10, 230);
+            this.c1ComboBox_Products.Name = "c1ComboBox_Products";
+            this.c1ComboBox_Products.Size = new System.Drawing.Size(380, 18);
+            this.c1ComboBox_Products.TabIndex = 33;
+            this.c1ComboBox_Products.Tag = null;
+            // 
             // c1CheckBox_AdultSign
             // 
             this.c1CheckBox_AdultSign.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox_AdultSign.Location = new System.Drawing.Point(500, 35);
+            this.c1CheckBox_AdultSign.Location = new System.Drawing.Point(12, 144);
             this.c1CheckBox_AdultSign.Name = "c1CheckBox_AdultSign";
             this.c1CheckBox_AdultSign.Size = new System.Drawing.Size(148, 24);
             this.c1CheckBox_AdultSign.TabIndex = 30;
@@ -343,7 +445,7 @@
             // 
             this.c1NumericEdit_WieghtLimit.Enabled = false;
             this.c1NumericEdit_WieghtLimit.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1NumericEdit_WieghtLimit.Location = new System.Drawing.Point(748, 10);
+            this.c1NumericEdit_WieghtLimit.Location = new System.Drawing.Point(260, 119);
             this.c1NumericEdit_WieghtLimit.MaxLength = 5000;
             this.c1NumericEdit_WieghtLimit.Name = "c1NumericEdit_WieghtLimit";
             this.c1NumericEdit_WieghtLimit.Size = new System.Drawing.Size(72, 18);
@@ -360,7 +462,7 @@
             // c1CheckBox_EnableUPSForDK
             // 
             this.c1CheckBox_EnableUPSForDK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox_EnableUPSForDK.Location = new System.Drawing.Point(500, 10);
+            this.c1CheckBox_EnableUPSForDK.Location = new System.Drawing.Point(12, 119);
             this.c1CheckBox_EnableUPSForDK.Name = "c1CheckBox_EnableUPSForDK";
             this.c1CheckBox_EnableUPSForDK.Size = new System.Drawing.Size(253, 24);
             this.c1CheckBox_EnableUPSForDK.TabIndex = 28;
@@ -410,7 +512,7 @@
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(9, 125);
+            this.label2.Location = new System.Drawing.Point(9, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1350, 2);
             this.label2.TabIndex = 21;
@@ -446,7 +548,7 @@
             // 
             // c1Button_LabelPrinterConfig
             // 
-            this.c1Button_LabelPrinterConfig.Location = new System.Drawing.Point(447, 225);
+            this.c1Button_LabelPrinterConfig.Location = new System.Drawing.Point(918, 103);
             this.c1Button_LabelPrinterConfig.Name = "c1Button_LabelPrinterConfig";
             this.c1Button_LabelPrinterConfig.Size = new System.Drawing.Size(75, 23);
             this.c1Button_LabelPrinterConfig.TabIndex = 17;
@@ -456,7 +558,7 @@
             // 
             // c1Button_InvoicePrinterConfig
             // 
-            this.c1Button_InvoicePrinterConfig.Location = new System.Drawing.Point(147, 225);
+            this.c1Button_InvoicePrinterConfig.Location = new System.Drawing.Point(618, 103);
             this.c1Button_InvoicePrinterConfig.Name = "c1Button_InvoicePrinterConfig";
             this.c1Button_InvoicePrinterConfig.Size = new System.Drawing.Size(75, 23);
             this.c1Button_InvoicePrinterConfig.TabIndex = 16;
@@ -467,7 +569,7 @@
             // label_LabelPrinterPaper
             // 
             this.label_LabelPrinterPaper.AutoSize = true;
-            this.label_LabelPrinterPaper.Location = new System.Drawing.Point(419, 197);
+            this.label_LabelPrinterPaper.Location = new System.Drawing.Point(890, 75);
             this.label_LabelPrinterPaper.Name = "label_LabelPrinterPaper";
             this.label_LabelPrinterPaper.Size = new System.Drawing.Size(35, 13);
             this.label_LabelPrinterPaper.TabIndex = 15;
@@ -476,7 +578,7 @@
             // label_LabelPrinterDrawer
             // 
             this.label_LabelPrinterDrawer.AutoSize = true;
-            this.label_LabelPrinterDrawer.Location = new System.Drawing.Point(419, 177);
+            this.label_LabelPrinterDrawer.Location = new System.Drawing.Point(890, 55);
             this.label_LabelPrinterDrawer.Name = "label_LabelPrinterDrawer";
             this.label_LabelPrinterDrawer.Size = new System.Drawing.Size(41, 13);
             this.label_LabelPrinterDrawer.TabIndex = 13;
@@ -485,7 +587,7 @@
             // label_LabelPrinterName
             // 
             this.label_LabelPrinterName.AutoSize = true;
-            this.label_LabelPrinterName.Location = new System.Drawing.Point(419, 157);
+            this.label_LabelPrinterName.Location = new System.Drawing.Point(890, 35);
             this.label_LabelPrinterName.Name = "label_LabelPrinterName";
             this.label_LabelPrinterName.Size = new System.Drawing.Size(35, 13);
             this.label_LabelPrinterName.TabIndex = 11;
@@ -495,7 +597,7 @@
             // 
             this.label_LabelPrintingSettings.AutoSize = true;
             this.label_LabelPrintingSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_LabelPrintingSettings.Location = new System.Drawing.Point(414, 137);
+            this.label_LabelPrintingSettings.Location = new System.Drawing.Point(885, 15);
             this.label_LabelPrintingSettings.Name = "label_LabelPrintingSettings";
             this.label_LabelPrintingSettings.Size = new System.Drawing.Size(133, 13);
             this.label_LabelPrintingSettings.TabIndex = 9;
@@ -504,7 +606,7 @@
             // label_InvoicePrinterPaper
             // 
             this.label_InvoicePrinterPaper.AutoSize = true;
-            this.label_InvoicePrinterPaper.Location = new System.Drawing.Point(90, 197);
+            this.label_InvoicePrinterPaper.Location = new System.Drawing.Point(561, 75);
             this.label_InvoicePrinterPaper.Name = "label_InvoicePrinterPaper";
             this.label_InvoicePrinterPaper.Size = new System.Drawing.Size(35, 13);
             this.label_InvoicePrinterPaper.TabIndex = 8;
@@ -513,7 +615,7 @@
             // label_PrinterPaperInvoice
             // 
             this.label_PrinterPaperInvoice.AutoSize = true;
-            this.label_PrinterPaperInvoice.Location = new System.Drawing.Point(10, 197);
+            this.label_PrinterPaperInvoice.Location = new System.Drawing.Point(481, 75);
             this.label_PrinterPaperInvoice.Name = "label_PrinterPaperInvoice";
             this.label_PrinterPaperInvoice.Size = new System.Drawing.Size(71, 13);
             this.label_PrinterPaperInvoice.TabIndex = 7;
@@ -522,7 +624,7 @@
             // label_InvoicePrinterDrawer
             // 
             this.label_InvoicePrinterDrawer.AutoSize = true;
-            this.label_InvoicePrinterDrawer.Location = new System.Drawing.Point(90, 177);
+            this.label_InvoicePrinterDrawer.Location = new System.Drawing.Point(561, 55);
             this.label_InvoicePrinterDrawer.Name = "label_InvoicePrinterDrawer";
             this.label_InvoicePrinterDrawer.Size = new System.Drawing.Size(41, 13);
             this.label_InvoicePrinterDrawer.TabIndex = 6;
@@ -531,7 +633,7 @@
             // label_PrinterDrawerInvoice
             // 
             this.label_PrinterDrawerInvoice.AutoSize = true;
-            this.label_PrinterDrawerInvoice.Location = new System.Drawing.Point(10, 177);
+            this.label_PrinterDrawerInvoice.Location = new System.Drawing.Point(481, 55);
             this.label_PrinterDrawerInvoice.Name = "label_PrinterDrawerInvoice";
             this.label_PrinterDrawerInvoice.Size = new System.Drawing.Size(77, 13);
             this.label_PrinterDrawerInvoice.TabIndex = 5;
@@ -540,7 +642,7 @@
             // label_InvoicePrinterName
             // 
             this.label_InvoicePrinterName.AutoSize = true;
-            this.label_InvoicePrinterName.Location = new System.Drawing.Point(90, 157);
+            this.label_InvoicePrinterName.Location = new System.Drawing.Point(561, 35);
             this.label_InvoicePrinterName.Name = "label_InvoicePrinterName";
             this.label_InvoicePrinterName.Size = new System.Drawing.Size(35, 13);
             this.label_InvoicePrinterName.TabIndex = 4;
@@ -549,7 +651,7 @@
             // label_PrinterNameInvoice
             // 
             this.label_PrinterNameInvoice.AutoSize = true;
-            this.label_PrinterNameInvoice.Location = new System.Drawing.Point(10, 157);
+            this.label_PrinterNameInvoice.Location = new System.Drawing.Point(481, 35);
             this.label_PrinterNameInvoice.Name = "label_PrinterNameInvoice";
             this.label_PrinterNameInvoice.Size = new System.Drawing.Size(71, 13);
             this.label_PrinterNameInvoice.TabIndex = 3;
@@ -559,7 +661,7 @@
             // 
             this.label_InvoicePrinterSettings.AutoSize = true;
             this.label_InvoicePrinterSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_InvoicePrinterSettings.Location = new System.Drawing.Point(144, 137);
+            this.label_InvoicePrinterSettings.Location = new System.Drawing.Point(615, 15);
             this.label_InvoicePrinterSettings.Name = "label_InvoicePrinterSettings";
             this.label_InvoicePrinterSettings.Size = new System.Drawing.Size(144, 13);
             this.label_InvoicePrinterSettings.TabIndex = 2;
@@ -742,10 +844,6 @@
             this.ribbonProgressBar.Name = "ribbonProgressBar";
             this.ribbonProgressBar.Width = 1000;
             // 
-            // salesOrderPrintinfoEntityBindingSource
-            // 
-            this.salesOrderPrintinfoEntityBindingSource.DataSource = typeof(ERPPrintingApplication.MagentoSoapAPI.salesOrderPrintinfoEntity);
-            // 
             // c1Button_PickPack
             // 
             this.c1Button_PickPack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -756,6 +854,14 @@
             this.c1Button_PickPack.Text = "Pick&&Pack";
             this.c1Button_PickPack.UseVisualStyleBackColor = true;
             this.c1Button_PickPack.Click += new System.EventHandler(this.c1Button_PickPack_Click);
+            // 
+            // salesOrderPrintinfoEntityBindingSource
+            // 
+            this.salesOrderPrintinfoEntityBindingSource.DataSource = typeof(ERPPrintingApplication.MagentoSoapAPI.salesOrderPrintinfoEntity);
+            // 
+            // catalogProductCustomOptionTypesEntityBindingSource
+            // 
+            this.catalogProductCustomOptionTypesEntityBindingSource.DataSource = typeof(ERPPrintingApplication.MagentoSoapAPI.catalogProductCustomOptionTypesEntity);
             // 
             // MainForm
             // 
@@ -784,6 +890,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid_Items)).EndInit();
             this.c1DockingTabPage_Settings.ResumeLayout(false);
             this.c1DockingTabPage_Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button_AddNewProdut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_BracodeData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox_RollQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox_Products)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_AdultSign)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1NumericEdit_WieghtLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox_EnableUPSForDK)).EndInit();
@@ -806,8 +916,9 @@
             this.c1PrintPreviewDialog_Invoice.PrintPreviewControl.PerformLayout();
             this.c1PrintPreviewDialog_Invoice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1StatusBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button_PickPack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderPrintinfoEntityBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogProductCustomOptionTypesEntityBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -867,6 +978,15 @@
         private C1.Win.C1Input.C1NumericEdit c1NumericEdit_WieghtLimit;
         private C1.Win.C1Input.C1CheckBox c1CheckBox_AdultSign;
         private C1.Win.C1Input.C1Button c1Button_PickPack;
+        private System.Windows.Forms.BindingSource catalogProductCustomOptionTypesEntityBindingSource;
+        private C1.Win.C1Input.C1Button c1Button_AddNewProdut;
+        private System.Windows.Forms.Label label6;
+        private C1.Win.C1Input.C1TextBox c1TextBox_BracodeData;
+        private C1.Win.C1Input.C1TextBox c1TextBox_RollQty;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private C1.Win.C1Input.C1ComboBox c1ComboBox_Products;
+        private System.Windows.Forms.Label label7;
 
 
     }

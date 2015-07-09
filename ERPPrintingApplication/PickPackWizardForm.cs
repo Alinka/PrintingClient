@@ -50,12 +50,17 @@ namespace ERPPrintingApplication
         {
             Helper.FillAddress(label_OrderNumber, label_Address, _order, _countries);
             Helper.FillItems(_orderItems, c1FlexGrid_Items, _warehouse);
-            DisableCheckbox();
+            
+            //Not needed pga checkbox column is disabled for editing
+            //DisableCheckbox();
+
+            //Uncomment when ready for printing invoices
             //Program.PrintService.PrintInvoice(label_Address.Text, c1FlexGrid_Items, label_OrderNumber.Text);
 
             this.ActiveControl = c1TextBox_BarcodeInput;         
         }
 
+        //Can remove this method
         private void DisableCheckbox()
         {
             foreach (Row row in c1FlexGrid_Items.Rows.Cast<Row>().Skip(1))
@@ -78,14 +83,13 @@ namespace ERPPrintingApplication
         {
             if (e.KeyCode == Keys.Enter)
             {               
-                SearchDB(c1TextBox_BarcodeInput.Text);
+                SearchDB();
             }
         }
 
-        private void SearchDB(string barcode)
+        private void SearchDB()
         {
-            Console.WriteLine("Barcode Scaned: " + barcode);
-            string selectStr = "SELECT * FROM barcode WHERE barcode_seq=" + barcode;
+            string selectStr = @"SELECT * FROM barcode WHERE barcode_seq=" + c1TextBox_BarcodeInput.Text;
             string connectionString = Properties.Settings.Default.BarcodeDataConnectionString; // @"Data Source=C:\Users\Alina\Source\Repos\PrintingApplication\ERPPrintingApplication\BarcodeData.mdf;Persist Security Info=False;";
 
 
@@ -122,6 +126,7 @@ namespace ERPPrintingApplication
                         if (_allPacked)
                         {
                             Helper.ShippingLabelPrint(_orderGrid, _countries, label_Address.Text, _upsDK, _sign);
+                            _order[0] = true;
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
@@ -147,5 +152,9 @@ namespace ERPPrintingApplication
             }
         }
 
+        private void c1Button_PartialShipment_Click(object sender, EventArgs e)
+        {
+            Helper.ShipPartially(_orderGrid);
+        }
     }
 }

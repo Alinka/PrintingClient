@@ -70,5 +70,19 @@ namespace ERPPrintingApplication
                 return null;
             }
         }
+
+        public catalogProductEntity[] GetProducts()
+        {
+            try
+            {
+                catalogProductEntity[] cpe = _mageService.catalogProductList(_sessionKey, null, null);
+                return cpe;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retieving products: " + ex.Message);
+                return null;
+            }
+        }
     }
 }

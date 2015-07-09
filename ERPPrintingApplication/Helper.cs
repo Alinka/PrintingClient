@@ -113,5 +113,13 @@ namespace ERPPrintingApplication
             else return "N";
         }
 
+        internal static void ShipPartially(C1FlexGrid grid)
+        {
+            /**
+             * TO DO:
+             * Create shipment for items packed.
+             */ 
+            throw new NotImplementedException();
+        }
     }
 }

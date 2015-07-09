@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.ComponentModel;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace ERPPrintingApplication
 {
@@ -272,6 +273,7 @@ namespace ERPPrintingApplication
             LoadSettings();
         }
 
+        //This method loads setting from the previous use
         private void LoadSettings()
         {
             label_InvoicePrinterName.Text = _propSet.INVOICE_PRINTER;
@@ -294,7 +296,19 @@ namespace ERPPrintingApplication
             c1TextBox_ReturnAddress1.DisableOnNoData = false;
             c1TextBox_ReturnAddress1.Text = _propSet.RETURN_ADDRESS1;
             c1TextBox_ReturnAddress2.Text = _propSet.RETURN_ADDRESS2;
-            
+
+            List<string> items = new List<string>();
+            foreach (MagentoSoapAPI.catalogProductEntity product in Program.MagentoService.GetProducts())
+            {
+                items.Add(product.sku + ": " + product.name);
+            }
+
+            items.Sort();
+
+            c1ComboBox_Products.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            c1ComboBox_Products.AutoCompleteCustomSource.AddRange(items.ToArray());
+            c1ComboBox_Products.Items.AddRange(items);
+
          }
 
         private void c1Button_InvoicePrinterConfig_Click(object sender, EventArgs e)
@@ -348,10 +362,12 @@ namespace ERPPrintingApplication
 
         private void StyleTheGrid(C1FlexGrid g)
         {
+            g.Cols[0].DataType = typeof(bool);
             for (int i = 0; i < g.Cols.Count; i++ ) g.Cols[i].AllowFiltering = AllowFiltering.None;
             g.Cols["shipping_description"].AllowFiltering = AllowFiltering.ByValue;
-            g.Cols["created_at"].Visible = false;
-            g.Cols["updated_at"].Visible = false;
+            //g.Cols["created_at"].Visible = false;
+            g.Cols["created_at"].Sort = SortFlags.Ascending;
+            g.Cols["updated_at"].Visible = true;
             //g.Cols["status"].Visible = false;
 
             g.Cols["increment_id"].Caption = "order #";
@@ -375,12 +391,12 @@ namespace ERPPrintingApplication
 
         private void c1FlexGrid_ListOfOrders_Click(object sender, EventArgs e)
         {
+            
             FillOrderDetails(c1FlexGrid_ListOfOrders);
             c1SplitterPanel_OrderDetail.Visible = true;
             c1SplitterPanel_Items.Visible = true;
         }
-
-       
+               
         private void c1DockingTabPage_Settings_Enter(object sender, EventArgs e)
         {
             c1ComboBox_waredhouseID.SelectedIndex = _propSet.WAREHOUSE;
@@ -428,7 +444,7 @@ namespace ERPPrintingApplication
             Helper.FillItems(orderData, c1FlexGrid_Items, _preparationWarehouse);
 
         }
-
+        //Bg worker retrieves order details
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             c1FlexGrid_ListOfOrders.Invoke(new MethodInvoker(delegate { c1FlexGrid_ListOfOrders.Enabled = false; }));
@@ -507,10 +523,6 @@ namespace ERPPrintingApplication
             _propSet.Save();
         }
 
-
-
-        
-
         private void c1FlexGrid_Items_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -518,12 +530,14 @@ namespace ERPPrintingApplication
                 Debug.WriteLine("Scaned code");
             }
         }
-
+        //Starts auto mode for packing: goes from order to order on order packed
         private void c1Button_PickPack_Click(object sender, EventArgs e)
         {
             foreach (Row order in c1FlexGrid_ListOfOrders.Rows.Cast<Row>().Skip(1))
             {
-                if(order.IsVisible)
+
+
+                if(order.IsVisible && (Convert.ToBoolean(order[0]) == false))
                 {
                     using (PickPackWizardForm pickPackWiz = new PickPackWizardForm(order, _countries, _orderItemArray, _preparationWarehouse, c1FlexGrid_ListOfOrders, c1CheckBox_EnableUPSForDK.Checked, c1CheckBox_AdultSign.Checked))
                     {
@@ -533,5 +547,46 @@ namespace ERPPrintingApplication
                 }            
             }
         }
+
+        private void c1Button_AddNewProdut_Click(object sender, EventArgs e)
+        {
+            if (c1ComboBox_Products.Text != "" && c1TextBox_RollQty.Text != "" && c1TextBox_BracodeData.Text != "")
+            {                
+                InsertInDB();
+            }
+            
+        }
+
+        private void InsertInDB()
+        {
+            /**
+             * TO DO:
+             * Fix this insert function so it is possible to insert data into the DB through the GUI
+             */
+            string[] sku = c1ComboBox_Products.Text.Split(':');
+            string connectionString = Properties.Settings.Default.BarcodeDataConnectionString;
+            string query = "INSERT INTO barcode(sku, qty, barcode_seq) VALUES( 'SM-813', 5, 7311250108136)";
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            
+            SqlCommand cmd = new SqlCommand(query, conn);
+            Debug.WriteLine(cmd.CommandText);
+
+            cmd.Parameters.AddWithValue("@SKU", sku[0].Trim());
+            cmd.Parameters.AddWithValue("@QTY", Int16.Parse(c1TextBox_RollQty.Text.Trim()));
+            cmd.Parameters.AddWithValue("@Barcode", Int64.Parse(c1TextBox_BracodeData.Text.Trim()));
+
+            cmd.ExecuteNonQuery();
+            conn.Dispose();
+            conn.Close();
+        }
+
+        //Uncomment when insert is ready to be used
+/*        private void c1TextBox_BracodeData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) c1Button_AddNewProdut_Click(sender, e);
+        }
+        */
     }
 }

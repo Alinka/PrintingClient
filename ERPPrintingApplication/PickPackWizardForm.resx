@@ -121,6 +121,6 @@
     <value>True</value>
   </metadata>
   <data name="c1FlexGrid_Items.ColumnInfo" xml:space="preserve">
-    <value>10,1,0,0,0,95,Columns:1{Width:331;Name:"Name";Caption:"Name";}	2{Width:79;Caption:"SKU";}	3{Width:41;Caption:"Qty";Style:"TextAlign:CenterCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;ImageAlign:LeftCenter;";}	4{Width:66;Caption:"Qty packed";Style:"DataType:System.Int16;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	5{Caption:"Packed";Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
+    <value>10,1,0,0,0,95,Columns:1{Width:331;Name:"Name";Caption:"Name";}	2{Width:79;Caption:"SKU";}	3{Width:41;Caption:"Qty";Style:"TextAlign:CenterCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;ImageAlign:LeftCenter;";}	4{Width:66;Caption:"Qty packed";Style:"DataType:System.Int16;TextAlign:GeneralCenter;";StyleFixed:"TextAlign:CenterCenter;";}	5{Caption:"Packed";AllowEditing:False;Style:"DataType:System.Boolean;TextAlign:LeftCenter;ImageAlign:CenterCenter;";StyleFixed:"TextAlign:CenterCenter;";}	</value>
   </data>
 </root>
